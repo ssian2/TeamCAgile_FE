@@ -1,5 +1,59 @@
 {% extends "base.njk" %}
 
+{% block pageTitle %}
+<h1>Job Role Application</h1>
+{% endblock %}
+
+
 {% block content %}
-<h1>Welcome to web app system</h1>
-{% endblock %} 
+
+  <div>
+  <div>
+  <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">What would you like to do?</h1>
+          <p>
+        This application will let you view job roles at Kainos, including the job specification, capability and
+        band level.
+      </p>
+        </div>
+      </div>
+      </div>
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>View job roles</h2>
+            <p>Find out more about roles available at Kainos</p>
+            <p><a class="btn btn-secondary" href="/job-roles" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>View roles by specification</h2>
+            <p>Find out more about job specifications for specific roles at Kainos.</p>
+            <p><a class="btn btn-secondary" href="/job-roles-spec" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>View job roles by capability</h2>
+            <p>Find out more about job capabilities for specific roles at Kainos.</p>
+            <p><a class="btn btn-secondary" href="/job-roles-capability" role="button">View details &raquo;</a></p>
+          </div>
+           <div class="col-md-4">
+            <h2>View job roles by band level</h2>
+            <p>Find out more about job band levels for specific roles at Kainos.</p>
+            <p><a class="btn btn-secondary" href="/job-roles-band-level" role="button">View details &raquo;</a></p>
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="container">
+      <p>&copy; Kainos 2021</p>
+    </footer>
+    </div>
+  </div>
+
+{% endblock %}
