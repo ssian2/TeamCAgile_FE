@@ -1,28 +1,28 @@
 {% extends "base.njk" %}
 
 {% block content %}
-<h1>Job Roles</h1>
+<h1>Job Role Specifications</h1>
 
-{% if job_roles|length %}
+{% if job_roles_spec|length %}
 
-<h3>Listed below is the job roles at Kainos</h3>
+<h3>Listed below are the specfications for jobs at Kainos</h3>
 
 <table class="table" style="margin-top:2%">
   <thead>
     <tr>
-      <th scope="col">Name of Job Role</th>
+      <th scope="col">Job Specifications</th>
     </tr>
   </thead>
   <tbody>
-  {% for role in job_roles %}
+  {% for spec in job_roles_spec %}
     <tr>
-      <th scope="row">{{role.name}}</th>
+      <th scope="row">{{spec.specification}}</th>
     </tr>
     {% endfor %}
   </tbody>
 </table>
 {% else %}
-  <h2>There are no job roles</h2>
+  <h2>There are no job role specifications</h2>
 {% endif %}
 
 

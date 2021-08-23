@@ -34,6 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 const routes = require('./routes/job_role_routes');
 app.use("/job-roles",routes);
 
+const testroute = require('./routes/job_spec_routes');
+
+app.use("/job-roles-spec",testroute);
+
 
 app.get("/", (req, res) => res.render('index'));
 app.get("*", (req, res) => res.render('notfound'));
