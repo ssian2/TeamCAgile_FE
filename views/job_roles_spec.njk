@@ -1,0 +1,29 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<h1>Job Role Specifications</h1>
+
+{% if job_roles_spec|length %}
+
+<h3>Listed below are the specfications for jobs at Kainos</h3>
+
+<table class="table" style="margin-top:2%">
+  <thead>
+    <tr>
+      <th scope="col">Job Specifications</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for spec in job_roles_spec %}
+    <tr>
+      <th scope="row">{{spec.specification}}</th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <h2>There are no job role specifications</h2>
+{% endif %}
+
+
+{% endblock %} 
