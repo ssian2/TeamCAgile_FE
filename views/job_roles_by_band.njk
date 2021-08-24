@@ -1,0 +1,35 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<br>
+<h1>Job Roles with coresponding bands</h1>
+<br>
+<br>
+{% if job_roles|length %}
+<div class="container-lg">
+<table class="table table-responsive">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Job Role</th>
+      <th scope="col">Band</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  {% for role in job_roles %}
+    <tr>
+      
+      <td>{{role.name}}</td>
+      <td>{{role.band_name.name}}</td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}
+  <h2>There are no job roles</h2>
+{% endif %}
+
+
+{% endblock %} 
