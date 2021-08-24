@@ -8,3 +8,11 @@ describe('testing the job role path', () => {
     expect(res.statusCode).toEqual(200)
   })
 })
+
+describe('testing the job spec path', () => {
+  it('should get 200 status code', async () => {
+    const res = await request(app)
+      .get('/job-roles-spec')
+    expect(res.statusCode).toEqual(200)
+  })
+})
