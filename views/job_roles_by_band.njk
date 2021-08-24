@@ -1,13 +1,16 @@
 {% extends "base.njk" %}
 
 {% block content %}
+
+{% if job_roles|length %}
+<div class="container">
+
 <br>
 <h1>Job Roles with coresponding bands</h1>
 <br>
 <br>
-{% if job_roles|length %}
-<div class="container-lg">
-<table class="table table-responsive">
+<div class="table-responsive">
+<table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Job Role</th>
@@ -26,6 +29,7 @@
     {% endfor %}
   </tbody>
 </table>
+</div>
 </div>
 {% else %}
   <h2>There are no job roles</h2>
