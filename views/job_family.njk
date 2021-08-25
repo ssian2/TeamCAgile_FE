@@ -1,0 +1,19 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<h1>Job Families</h1>
+
+{% if job_families|length %}
+
+  {% for family in job_families %}
+  <h3>{{family.name}}</h1>
+  <p>Capability: {{family.capability_name}}</p>
+  
+  {% endfor %}
+
+{% else %}
+
+{% endif %}
+
+
+{% endblock %} 

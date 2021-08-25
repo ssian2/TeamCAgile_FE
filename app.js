@@ -31,12 +31,15 @@ app.use(express.static(path.join(__dirname, 'public')));
     Routing
 */
 
-const routes = require('./routes/job_role_routes');
-app.use("/job-roles",routes);
+const job_role_routes = require('./routes/job_role_routes');
+app.use("/job-roles",job_role_routes);
 
-const testroute = require('./routes/job_spec_routes');
+const capability_routes = require('./routes/capability_routes');
+app.use("/capabilities",capability_routes);
 
-app.use("/job-roles-spec",testroute);
+const spec_route = require('./routes/job_spec_routes');
+
+app.use("/job-roles-spec",spec_route);
 
 
 app.get("/", (req, res) => res.render('index'));

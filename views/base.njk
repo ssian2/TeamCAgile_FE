@@ -22,19 +22,20 @@
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body style="padding: 50px;">
+<body>
+<div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Job Roles</a>
+      <a class="navbar-brand" href="/"><img alt="image of kainos log" id="kainos-logo" src="https://www.kainos.com/globalassets/images/5_logos/kainos_logo.png?mode=crop&width=200"></img></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+      <div class="collapse navbar-collapse"id="navbarNavDropdown">
+        <ul class="navbar-nav nav-fill w-100">
+          <li class="nav-item">
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
@@ -43,8 +44,11 @@
           <li class="nav-item">
             <a class="nav-link" href="/job-roles-spec">Specification</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="job-roles-capability">Capability</a>
+           <li class="nav-item">
+            <a class="nav-link" href="/job-roles-spec">View Capabilities</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="/capabilities/job-family">View Job Families</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="job-roles-band-level">Band Level</a>
@@ -53,12 +57,14 @@
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username">
           <input class="form-control mr-sm-2" type="Password" placeholder="Password" aria-label="Password">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+          <button class="btn btn-outline-primary" type="submit">Login</button>
         </form>
       </div>
     </nav>
-    <div class="body-content">
+    </div>
+    <div class="body-content" style="padding:5%">
         {% block content %}
         {% endblock %}
     </div>
+    
 </body>
