@@ -10,16 +10,16 @@
 <br>
 <br>
 <div class="table-responsive">
-<table class="table">
+ <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Job Role</th>
       <th scope="col">Band</th>
     </tr>
-  </thead>
+  </thead> 
   <tbody>
   
-  {% for role in job_roles %}
+  {% for role in job_roles|sort(false,true,'band_name.name') %}
     <tr>
       
       <td>{{role.name}}</td>
