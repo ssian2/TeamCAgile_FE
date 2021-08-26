@@ -14,16 +14,16 @@
     </tr>
   </thead>
   <tbody>
-  {% for spec in job_roles_spec %}
     <tr>
-      <th scope="row">{{spec.specification}}</th>
+      <th scope="row">{{job_roles_spec.name}}</th>
     </tr>
-    {% endfor %}
+    <tr>
+    <td scope="row">{{job_roles_spec.specification}}</td>    
+    </tr>
   </tbody>
 </table>
 {% else %}
   <h2>There are no job role specifications</h2>
 {% endif %}
-
 
 {% endblock %} 
