@@ -4,30 +4,13 @@
 
 {% if job_roles_spec|length %}
 <div class="container">
+<h1 style="margin-bottom: 5%;">Job Role Details</h1>
+<h3>{{job_roles_spec.name}}</h3>
+<hr>
+<div style="margin-left: 5%;">
+<h5>Specfication:</h5> <p>{{job_roles_spec.specification}}</p>
 
-<br>
-<h1>Listed below are the specfications for jobs at Kainos</h1>
-<br>
-<br>
-<div class="table-responsive">
- <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Job Role</th>
-      <th scope="col">Specfication</th>
-      <th scope="col">Link to Sharepoint</th>
-    </tr>
-  </thead> 
-  <tbody>
-    <tr>
-      
-      <td>{{job_roles_spec.name}}</td>
-      <td>{{job_roles_spec.specification}}</td>
-      <td><a href="//{{job_roles_spec.url}}">{{job_roles_spec.url}}</a></td>
-      
-    </tr>
-  </tbody>
-</table>
+<h5>Band Level:</h5> <p>{{job_roles_spec["band_name"].name}}</p>
 </div>
 </div>
 {% else %}
