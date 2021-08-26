@@ -11,12 +11,14 @@
   <thead>
     <tr>
       <th scope="col">Name of Job Role</th>
+      <th scope="col">Specification</th>
     </tr>
   </thead>
   <tbody>
   {% for role in job_roles %}
     <tr>
-      <th scope="row">{{role.name}}</th>
+      <td scope="row">{{role.name}}</td>
+      <td scope="row">{{role.specification}}</td>
     </tr>
     {% endfor %}
   </tbody>

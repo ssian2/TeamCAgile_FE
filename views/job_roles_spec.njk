@@ -1,29 +1,36 @@
 {% extends "base.njk" %}
 
 {% block content %}
-<h1>Job Role Specifications</h1>
 
 {% if job_roles_spec|length %}
+<div class="container">
 
-<h3>Listed below are the specfications for jobs at Kainos</h3>
-
-<table class="table" style="margin-top:2%">
-  <thead>
+<br>
+<h1>Listed below are the specfications for jobs at Kainos</h1>
+<br>
+<br>
+<div class="table-responsive">
+ <table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th scope="col">Job Specifications</th>
+      <th scope="col">Job Role</th>
+      <th scope="col">Specfication</th>
     </tr>
-  </thead>
+  </thead> 
   <tbody>
     <tr>
-      <th scope="row">{{job_roles_spec.name}}</th>
-    </tr>
-    <tr>
-    <td scope="row">{{job_roles_spec.specification}}</td>    
+      
+      <td>{{job_roles_spec.name}}</td>
+      <td>{{job_roles_spec.specification}}</td>
+      
     </tr>
   </tbody>
 </table>
+</div>
+</div>
 {% else %}
-  <h2>There are no job role specifications</h2>
+  <h2>There are no job role specifications.</h2>
 {% endif %}
+
 
 {% endblock %} 
