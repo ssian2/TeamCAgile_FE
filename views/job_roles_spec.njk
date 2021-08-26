@@ -11,6 +11,9 @@
 <h5>Specfication:</h5> <p>{{job_roles_spec.specification}}</p>
 
 <h5>Band Level:</h5> <p>{{job_roles_spec["band_name"].name}}</p>
+{% if job_roles_spec.url != null %}
+<h5>URL:</h5> <a href="{{job_roles_spec.url}}">View Spec Doc</a>
+{% endif %}
 </div>
 </div>
 {% else %}
