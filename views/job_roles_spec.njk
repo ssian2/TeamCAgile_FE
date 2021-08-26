@@ -5,9 +5,7 @@
 {% if job_roles_spec|length %}
 <div class="container">
 
-<br>
-<h1>Listed below are the specfications for jobs at Kainos</h1>
-<br>
+<h1>Job Specification</h1>
 <br>
 <div class="table-responsive">
  <table class="table">
@@ -15,7 +13,6 @@
     <tr>
       <th scope="col">Job Role</th>
       <th scope="col">Specfication</th>
-      <th scope="col">Link to Sharepoint</th>
     </tr>
   </thead> 
   <tbody>
@@ -23,7 +20,6 @@
       
       <td>{{job_roles_spec.name}}</td>
       <td>{{job_roles_spec.specification}}</td>
-      <td><a href="//{{job_roles_spec.url}}">{{job_roles_spec.url}}</a></td>
       
     </tr>
   </tbody>
@@ -31,9 +27,7 @@
 </div>
 </div>
 {% else %}
-
-<p>Sorry, no job specfications have been returned from our database. Please try again later!</p>
-
+  <h2>There are no job role specifications.</h2>
 {% endif %}
 
 
