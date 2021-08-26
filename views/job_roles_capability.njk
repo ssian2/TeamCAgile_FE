@@ -1,0 +1,19 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<h1>Job Capabilities</h1>
+
+{% if job_capabilities|length %}
+
+  {% for capability in job_capabilities %}
+  <p>Capability: {{capability.name}}</p>
+  
+  {% endfor %}
+
+{% else %}
+<p>Sorry, no job capabilities have been returned from our database. Please try again later!</p>
+
+{% endif %}
+
+
+{% endblock %} 
