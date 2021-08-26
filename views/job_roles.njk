@@ -3,29 +3,34 @@
 {% block content %}
 <h1>Job Roles</h1>
 
-{% if job_roles|length %}
 
+{% if job_roles|length %}
 <h3>Listed below is the job roles at Kainos</h3>
 
-<table class="table" style="margin-top:2%">
-  <thead>
-    <tr>
-      <th scope="col">Name of Job Role</th>
-      <th scope="col">Specification</th>
-    </tr>
-  </thead>
-  <tbody>
+
+
+<div class="row mb-3">
   {% for role in job_roles %}
-    <tr>
-      <td scope="row">{{role.name}}</td>
-      <td scope="row">{{role.specification}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+  {% if loop.index % 5 == 0 %}
+   </div>
+  <div class="row mb-3">
+    {% endif %}
+    <div class="col-lg-3">
+      <div class="card h-100" style="width: 100%;">
+        <div class="card-body" style="min-height: 20%;">
+          <h5 class="card-title">{{role.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{role.job_family_name}}</h6>
+          <h6 class="card-subtitle mb-2">{{role["band_name"].name}}</h6>
+          <p class="card-text"></p>
+          <a href="#" class="card-link">View Specification</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
 {% else %}
-  <h2>There are no job roles</h2>
+<p>Sorry, no job roles have been returned from our database. Please try again later!</p>
 {% endif %}
 
 
-{% endblock %} 
+{% endblock %}

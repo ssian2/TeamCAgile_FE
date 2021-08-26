@@ -2,6 +2,7 @@ var express = require('express')
 const fetch = require("node-fetch");
 var router = express.Router()
 
+
 //displays specification for a particular role 
 router.get("/:specid", async (req, res) => {
 
