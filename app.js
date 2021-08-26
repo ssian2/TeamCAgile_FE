@@ -46,7 +46,7 @@ app.get("/", (req, res) => res.render('index'));
 app.get("*", (req, res) => res.render('notfound'));
 
 /* Port configuration */
-app.listen(process.env.PORT || 7999, function () {
+let server = app.listen(process.env.PORT || 7999, function () {
     console.log(`Application started on PORT: ${process.env.PORT || 7999}`);
 });
 
@@ -56,4 +56,4 @@ process.on('SIGINT', function () {
     process.exit();
 });
 
-module.exports = app;
+module.exports = server;
