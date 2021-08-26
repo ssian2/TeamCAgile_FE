@@ -7,6 +7,8 @@
 {% if job_roles|length %}
 <h3>Listed below is the job roles at Kainos</h3>
 
+
+
 <div class="row mb-3">
   {% for role in job_roles %}
   {% if loop.index % 5 == 0 %}
@@ -25,6 +27,7 @@
       </div>
     </div>
   {% endfor %}
+
 {% else %}
 <p>Sorry, no job roles have been returned from our database. Please try again later!</p>
 {% endif %}
