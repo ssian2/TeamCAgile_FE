@@ -19,11 +19,11 @@
   </thead> 
   <tbody>
   
-  {% for role in job_roles|sort(false,true,'band_name.name') %}
+  {% for role in job_roles|sort(false,true,'band.name') %}
     <tr>
       
       <td>{{role.name}}</td>
-      <td>{{role.band_name.name}}</td>
+      <td>{{role.band.name}}</td>
       
     </tr>
     {% endfor %}
