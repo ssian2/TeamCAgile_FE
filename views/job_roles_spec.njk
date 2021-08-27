@@ -10,14 +10,14 @@
 <div style="margin-left: 5%;">
 <h5>Specfication:</h5> <p>{{job_roles_spec.specification}}</p>
 
-<h5>Band Level:</h5> <p>{{job_roles_spec["band_name"].name}}</p>
+<h5>Band Level:</h5> <p>{{job_roles_spec["band"].name}}</p>
 {% if job_roles_spec.url != null %}
 <h5>URL:</h5> <a href="{{job_roles_spec.url}}">View Spec Doc</a>
 {% endif %}
 </div>
 </div>
 {% else %}
-  <h2>There are no job role specifications.</h2>
+  <p>Sorry, no job specifications have been returned from our database. Please try again later!</p>
 {% endif %}
 
 
