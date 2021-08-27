@@ -1,0 +1,30 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+{% if job_roles|length %}
+<div class="container">
+<br>
+<h1>Responsibilities of each role</h1>
+<br>
+
+
+{% for role in job_roles %}
+<p><h2>{{role.role_name}}</h2></p>
+<ul>
+{% for responsibility in role.resps %}
+
+<li>{{responsibility}}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+
+
+
+
+{% else %}
+  <h2>There are no job roles</h2>
+{% endif %}
+
+
+{% endblock %} 
