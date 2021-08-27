@@ -14,6 +14,13 @@
 {% if job_roles_spec.url != null %}
 <h5>URL:</h5> <a href="{{job_roles_spec.url}}">View Spec Doc</a>
 {% endif %}
+<br>
+<p><h5 id="responsibility-title">Responsibilities:</h5></p>
+<ul>
+{%for resp in job_roles_spec.responsibilities %}
+   <li>{{resp.name}}</li> 
+{%endfor%}
+</ul>
 </div>
 </div>
 {% else %}

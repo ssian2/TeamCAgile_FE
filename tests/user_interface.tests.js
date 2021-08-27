@@ -43,7 +43,7 @@ describe('executing test scenario on the website', () => {
         await driver.get(
             `http://localhost:7999/`,
         );
-    }, 20000);
+    }, 30000);
 
     afterAll(async () => {
         await driver.quit();
@@ -63,13 +63,19 @@ describe('executing test scenario on the website', () => {
         const value = await driver.findElement(By.id('roles_band_bt')).getAttribute('href')
         await driver.get(value)
         const title = await driver.findElement(By.tagName('h1')).getText()
-        expect(title).toContain("Job Roles with coresponding bands")
+        expect(title).toContain("Job Roles with Corresponding Bands")
     })
 
     test('jobe role by band orded by band', async () => {
         await driver.get('http://localhost:7999/job-roles/by-band')
         const title = await driver.findElements(By.tagName('td'))
         expect(title[0].getText()).toEqual(title[1].getText())
+    })
+
+    test('it displays responsibility in job spec', async () => {
+        await driver.get('http://localhost:7999/job-roles-spec/1')
+        const title = await driver.findElement(By.id('responsibility-title')).getText()
+        expect(title).toEqual('Responsibilities:')
     })
 
 })
