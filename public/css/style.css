@@ -10,3 +10,15 @@
     background-color: #283588;
     border-color: #283588;
 }
+.job-spec-paragragh{
+    margin-bottom: 5%; 
+    display: inline; 
+    font-size: large;
+    color: aqua;
+    
+}
+#bandLevelElement{
+    margin-bottom: 5%; 
+    display: inline; 
+    font-size: large;
+}
