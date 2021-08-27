@@ -1,0 +1,39 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+{% if job_roles|length %}
+<div class="container">
+
+<br>
+<h1>Job Roles with Corresponding Bands</h1>
+<br>
+<br>
+<div class="table-responsive">
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Job Role</th>
+      <th scope="col">Band</th>
+    </tr>
+  </thead> 
+  <tbody>
+  
+  {% for role in job_roles|sort(false,true,'band.name') %}
+    <tr>
+      
+      <td>{{role.name}}</td>
+      <td>{{role.band.name}}</td>
+      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+{% else %}
+  <h2>There are no job roles</h2>
+{% endif %}
+
+
+{% endblock %} 

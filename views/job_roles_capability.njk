@@ -1,0 +1,33 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+{% if job_capabilities|length %}
+<div class="container">
+<h1>Job Capabilities</h1>
+<p>Listed below are the capabilities for jobs at Kainos</p>
+<br>
+<div class="table-responsive">
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+       <th scope="col">Capabilities</th>
+    </tr>
+   </thead> 
+  <tbody>
+  {% for capability in job_capabilities %}
+  <tr>
+   <td>{{capability.name}}</td>
+   </tr>
+  {% endfor %}
+  </tbody>
+
+  </table>
+  </div>
+  </div>
+  {%else%}
+<p>Sorry, no job capabilities have been returned from our database. Please try again later!</p>
+
+{% endif %}
+
+{% endblock %} 
