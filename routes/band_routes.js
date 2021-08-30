@@ -5,7 +5,7 @@ var router = express.Router()
 
 router.get("/", async (req, res) => {
     try {
-    const url='http://localhost:8080/api/job-role/all';
+    const url='http://localhost:8080/api/bands/training';
     await fetch(url)
     fetch(url)
     .then(data => { return data.json()})
