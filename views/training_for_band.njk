@@ -4,44 +4,60 @@
 
 {% if bands|length %}
 <div class="container">
+<h1>Job Training</h1>
+<p>Listed below are the training required for each band level.</p>
 {%for band in bands|sort(false,true,'trainings.type')%}
-<br>
 <br>
 <h1>{{band.name}}</h1>
 <br>
-<br>
 
-
-<h4>Professional Skills</h4>
+<div class="table-responsive">
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+       <th scope="col" width="50">Professional Skills</th>
+       <th scope="col" width="50">Technical Skills</th>
+       <th scope="col" width="50">Development Programmes</th>
+    </tr>
+    </thead>
+    <tbody> 
+    <td>
 {%for training in band.trainings%}
 {% if training.type == "Professional Skills" %}
-<ul>
-    <li> {{training.name}}</li>
-</ul>
+    {{training.name}}<br>
+    Description: {{training.description}}<br>
+    {% if training.url != null %}
+    <a href="{{training.url}}">Find out more</a>
+    
+{% endif %}
+</td>
 {%endif%}
 {%endfor%}
-
-
-<br>
-<h4>Technical Skills</h4>
+<td>
 {%for training in band.trainings%}
-{%if training.type == "Technical Skills"%}
-<ul>
-    <li> {{training.name}}</li>
-</ul>
+{% if training.type == "Technical Skills" %}
+    {{training.name}}<br>
+    Description: {{training.description}}<br>
+    {% if training.url != null %}
+    <a href="{{training.url}}">Find out more</a>
+{% endif %}
+</td>
 {%endif%}
 {%endfor%}
-
-<br>
-<h4>Development Programmes</h4>
+<td>
 {%for training in band.trainings%}
-{%if training.type == "Development Programmes"%}
-<ul>
-    <li> {{training.name}}</li>
-</ul>
+{% if training.type == "Development Programmes" %}
+    {{training.name}}<br>
+    Description: {{training.description}}<br>
+    {% if training.url != null %}
+    <a href="{{training.url}}">Find out more</a>
+{% endif %}
+</td>
 {%endif%}
 {%endfor%}
-
+    </tbody> 
+</table>
+  </div>
 
 {%endfor%}
 </div>
