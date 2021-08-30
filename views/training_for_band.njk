@@ -1,0 +1,69 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+{% if bands|length %}
+<div class="container">
+<h1>Job Training</h1>
+<p>Listed below are the training required for each band level.</p>
+{%for band in bands|sort(false,true,'trainings.type')%}
+<br>
+<h1>{{band.name}}</h1>
+<br>
+
+<div class="table-responsive">
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+       <th scope="col" width="50">Professional Skills</th>
+       <th scope="col" width="50">Technical Skills</th>
+       <th scope="col" width="50">Development Programmes</th>
+    </tr>
+    </thead>
+    <tbody> 
+    <td>
+{%for training in band.trainings%}
+{% if training.type == "Professional Skills" %}
+    {{training.name}}<br>
+    Description: {{training.description}}<br>
+    {% if training.url != null %}
+    <a href="{{training.url}}">Find out more</a>
+    
+{% endif %}
+</td>
+{%endif%}
+{%endfor%}
+<td>
+{%for training in band.trainings%}
+{% if training.type == "Technical Skills" %}
+    {{training.name}}<br>
+    Description: {{training.description}}<br>
+    {% if training.url != null %}
+    <a href="{{training.url}}">Find out more</a>
+{% endif %}
+</td>
+{%endif%}
+{%endfor%}
+<td>
+{%for training in band.trainings%}
+{% if training.type == "Development Programmes" %}
+    {{training.name}}<br>
+    Description: {{training.description}}<br>
+    {% if training.url != null %}
+    <a href="{{training.url}}">Find out more</a>
+{% endif %}
+</td>
+{%endif%}
+{%endfor%}
+    </tbody> 
+</table>
+  </div>
+
+{%endfor%}
+</div>
+{% else %}
+  <h2>Sorry, no training options have been returned from our database. Please try again later!</h2>
+{% endif %}
+
+
+{% endblock %} 
