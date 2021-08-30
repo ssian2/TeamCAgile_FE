@@ -1,0 +1,38 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+{% if bands|length %}
+<div class="container">
+{%for band in bands|sort(false,true,'training.type')%}
+<h2>{{band.name}}</h2>
+<br>
+<h3>Professional Skills</h3>
+{% if band.training.type == "Professional Skills" %}
+<ul>
+    <li> {{band.training.name}}</li>
+</ul>
+{%endif%}
+
+<h3>Technical Skills</h3>
+{%if band.training.type == "Technical Skills"%}
+<ul>
+    <li> {{band.training.name}}</li>
+</ul>
+{%endif%}
+<h3>Development Programmes</h3>
+{%if band.training.type == "Development Programmes"%}
+<ul>
+    <li> {{band.training.name}}</li>
+</ul>
+{%endif%}
+
+
+{%endfor%}
+</div>
+{% else %}
+  <h2>Sorry, no training options have been returned from our database. Please try again later!</h2>
+{% endif %}
+
+
+{% endblock %} 

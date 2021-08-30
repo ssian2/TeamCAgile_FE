@@ -40,8 +40,10 @@ const capability_routes = require('./routes/capability_routes');
 app.use("/capabilities",capability_routes);
 
 const spec_route = require('./routes/job_spec_routes');
-
 app.use("/job-roles-spec",spec_route);
+
+const band_routes = require('./routes/band_routes');
+app.use("/bands-training",band_routes)
 
 
 app.get("/", (req, res) => res.render('index'));
