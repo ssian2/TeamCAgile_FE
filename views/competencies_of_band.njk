@@ -1,0 +1,32 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+
+
+{% if bands|length %}
+<div class="container">
+    <h1 class="bg-dark" ><p class="text-light ml-3 mb-2">Bands with corresponding competencies</p></h1>
+<br>
+<br>
+
+{%for band in bands%}
+<br>
+<h1>{{band.name}}</h1>
+<br>
+{%for competency in band.competency_info%}
+<ul>
+    <li> 
+        <h4>{{competency[0]}}</h4>
+        <p>{{competency[1]}}</p>
+    </li>
+</ul>
+{%endfor%}
+{%endfor%}
+</div>
+{% else %}
+  <h2>Sorry, no competency informations  have been returned from our database. Please try again later!</h2>
+{% endif %}
+
+
+{% endblock %} 
