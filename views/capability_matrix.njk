@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% if data|length %}
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="text-align:center;" colspan="{{ data.family[0].jobFamiliesNames|length + 1 }}">{{data.family[0].name}}</th>
+    </tr>
+    <tr>
+      <th scope="col">Bands</th>
+      {% for family in data.family[0].jobFamiliesNames %}
+      <th scope="col">{{family}}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for band in data.band_level %}
+    <tr>
+
+      <th scope="row">{{band.name}}</th>
+      {% set count = data.family[0].jobFamiliesNames|length %}
+      {% for family in data.family[0].jobFamiliesNames%}
+        {% for role in data.roles %}
+          {% if role.jobFamilyName == family and role.bandName == band.name %}
+            <td>{{role.name}}</td>
+            {% set count = count - 1 %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+       {% for c in range(0,count) %}
+          <td></td>
+          {% endfor %}
+     
+    </tr>
+    {% endfor %}
+  </tbody>
+
+
+</table>
+
+{%else%}
+<p>Sorry, no capabilities have been returned from our database. Please try again later!</p>
+
+{% endif %}
+
+{% endblock %}

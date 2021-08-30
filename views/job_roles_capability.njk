@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% if job_capabilities|length %}
+{% if job_roles|length %}
 <div class="container">
 <h1>Job Capabilities</h1>
 <p>Listed below are the capabilities for jobs at Kainos</p>
@@ -12,12 +12,18 @@
   <thead class="thead-dark">
     <tr>
        <th scope="col">Capabilities</th>
+        <th scope="col">Job Role</th>
+         <th scope="col">View Job Families</th>
+         <th scope="col">View Capability Matrix</th>
     </tr>
    </thead> 
   <tbody>
-  {% for capability in job_capabilities %}
+  {% for role in job_roles | sort(false, true, 'capability') %}
   <tr>
-   <td>{{capability.name}}</td>
+   <td>{{role.capability}}</td>
+   <td>{{role.name}}</td>
+   <td><a href="/capabilities/get/{{role.capability}}">View Job Families</a></td>
+   <td><a href="/capabilities/matrix/{{role.capability}}">View Capability Matrix</a><td>
    </tr>
   {% endfor %}
   </tbody>
@@ -26,7 +32,7 @@
   </div>
   </div>
   {%else%}
-<p>Sorry, no job capabilities have been returned from our database. Please try again later!</p>
+<p>Sorry, no capabilities have been returned from our database. Please try again later!</p>
 
 {% endif %}
 
