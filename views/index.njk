@@ -1,54 +1,56 @@
 {% extends "base.njk" %}
 
 {% block pageTitle %}
-<h1>Job Role Application</h1>
+	<h1>Job Role Application</h1>
 {% endblock %}
 
-
 {% block content %}
-
-  <div>
-  <div>
-  <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">What would you like to do?</h1>
-          <p>
-        This application will let you view job roles at Kainos, including the job specification, capability and
-        band level.
-      </p>
-        </div>
-      </div>
-      </div>
-      <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <h2>View job roles</h2>
-            <p>Find out more about roles available at Kainos</p>
-            <p><a class="btn btn-primary" href="/job-roles" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>View all the capabilities</h2>
-            <p>Find out more about job capabilities for specific roles at Kainos.</p>
-            <p><a class="btn btn-primary" href="/capabilities/all" role="button">View details &raquo;</a></p>
-          </div>
-           <div class="col-md-4">
-            <h2>View job roles by band level</h2>
-            <p>Find out more about job band levels for specific roles at Kainos.</p>
-            <p><a id="roles_band_bt" class="btn btn-primary" href="/job-roles/by-band" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
-
-        <hr>
-
-      </div> <!-- /container -->
-
-    </main>
-
-    <footer class="container">
-      <p>&copy; Kainos 2021</p>
-    </footer>
-    </div>
-  </div>
-
+	<div>
+		<div>
+			<div class="jumbotron">
+				<div class="container">
+					<h1 class="display-3">What would you like to do?</h1>
+					<p>This application will let you view job roles at Kainos, including the job specification, capability and band level.</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>View job roles</h2>
+					<p>Find out more about roles available at Kainos</p>
+					<p>
+						<a class="btn btn-primary" href="/job-roles" role="button">View details &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>View all the capabilities</h2>
+					<p>Find out more about job capabilities for specific roles at Kainos.</p>
+					<p>
+						<a class="btn btn-primary" href="/capabilities/all" role="button">View details &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>View job roles by band level</h2>
+					<p>Find out more about job band levels for specific roles at Kainos.</p>
+					<p>
+						<a id="roles_band_bt" class="btn btn-primary" href="/job-roles/by-band" role="button">View details &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Admin FE</h2>
+					<p>Go to the admin frontend</p>
+					<p>
+						<a class="btn btn-danger" href="/admin" role="button">View details &raquo;</a>
+					</p>
+				</div>
+			</div>
+			<hr>
+		</div>
+		<!-- /container -->
+	</div>
+	<footer class="container">
+		<p>&copy; Kainos 2021</p>
+	</footer>
 {% endblock %}

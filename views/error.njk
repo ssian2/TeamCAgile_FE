@@ -1,8 +1,4 @@
-<h1>404 Page Not Found</h1>
-
 {% extends "base.njk" %}
-
 {% block content %}
-<h1>404 Page Not Found</h1>
-
+    <h1>Error {{error.code}}: {{error.message}}</h1>
 {% endblock %}
