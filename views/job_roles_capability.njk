@@ -16,48 +16,47 @@
     </div>
 
 <div class="container">
-  <h1>Job Capabilities</h1>
-  <p>Listed below are the capabilities for jobs at Kainos</p>
-  <br>
-  {% for cap in capability | sort(false, true, 'name') %}
-  {% if cap.jobRolesInCapability|length %}
-  <div class="table-responsive">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th style="min-width:10%; width:60%" class="p-3 text-center" scope="col">{{cap.name}}</a></th>
-          <th >
-          <div style="float:right;" class="btn-group" role="group" aria-label="Basic example">
-            <button onclick="location.href='/capabilities/get/{{cap.name}}'" type="button" class="btn btn-primary">Job
+    {%for cap in capability%}
+    <br>
+    <div style="display:flex;flex-direction:row;flex-wrap: wrap;justify-content: space-between;">
+        <h1 id="title-text">{{cap.name}}</h1>
+          <div class="btn-group" role="group" aria-label="Basic example">
+             <button onclick="location.href='/capabilities/get/{{cap.name}}'" type="button" class="btn btn-primary">Job
               Families</button>
-            <button onclick="location.href='/capabilities/matrix/{{cap.name}}'" type="button"
-              class="btn btn-primary">Capability Matrix</button>
+             <button onclick="location.href='/capabilities/matrix/{{cap.name}}'" type="button"
+               class="btn btn-primary">Capability Matrix</button>
           </div>
-          </th>
-        </tr>
+    </div>
+    <br>
 
-      </thead>
-      <tbody>
-        {% for role in cap.jobRolesInCapability%}
-        <tr>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" width="50" id="gen-text">Job Roles</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% if cap.jobRolesInCapability|length %}
+          {% for role in cap.jobRolesInCapability%}
+          <tr>
+          <td>{{role}}</td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+          <td>No Role</td>
+          </tr>
+        {% endif %}
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-          <td colspan="3">{{role}}</td>
-
-        </tr>
-        {% endfor %}
-
-      </tbody>
-
-    </table>
-
-    {% else %}
-
-    <div></div>
-    {% endif %}
-    {% endfor %}
+    {%endfor%}
   </div>
-</div>
-{%else%}
+{% else %}
 <p>Sorry, no capabilities have been returned from our database. Please try again later!</p>
 
 
