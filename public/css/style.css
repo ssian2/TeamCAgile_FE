@@ -26,12 +26,32 @@
       width: auto;
   }
 
+  /*for jumbotrons with the blue background and white text*/
   #text {
       font-family: 'Karla', sans-serif;
       color: white;
   }
 
-  #job-family.jumbotron {
+  /*for title text*/
+  #title-text {
+    font-family: 'Karla', sans-serif;
+    color: #283583;
+}
+
+/*for general text*/
+  th#gen-text {
+    font-family: 'Karla', sans-serif;
+    color: black;
+    font-weight: 100;
+}
+
+div#gentext {
+    font-family: 'Karla', sans-serif;
+    color: black;
+    font-weight: 50;
+}
+
+  #bands.jumbotron {
     background: #283583;
     width: auto;
 }
@@ -52,4 +72,22 @@
     margin-bottom: 5%; 
     display: inline; 
     font-size: large;
+}
+
+.jumbotron.jumbotron-fluid {
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+a.card-link {
+    color: #283583;
+}
+
+.card {
+    border: none;
+}
+
+.table .thead-light th {
+    border-color: none;
+    color: #283583;;
 }

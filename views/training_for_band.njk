@@ -2,15 +2,10 @@
 
 {% block content %}
 
-{% block css %}
-<link href="css/style.css" rel="stylesheet">
-{% endblock %}
-
 {% if bands | length %}
 
-<div class="background">
   <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-3" id="text">Job Training</h1>
         <p id="text">
@@ -23,33 +18,35 @@
   <div class="container">
     {%for band in bands|sort(false,true,'trainings.type')%}
     <br>
-    <h1>{{band.name}}</h1>
+    <h1 id="title-text">{{band.name}}</h1>
     <br>
 
     <div class="table-responsive">
-      <table class="table">
-        <thead class="thead-dark">
+      <table class="table table-bordered">
+        <thead class="thead-light">
           <tr>
-            <th scope="col" width="50">Professional Skills</th>
-            <th scope="col" width="50">Technical Skills</th>
-            <th scope="col" width="50">Development Programmes</th>
+            <th scope="col" width="50" id="gen-text">Professional Skills</th>
+            <th scope="col" width="50" id="gen-text">Technical Skills</th>
+            <th scope="col" width="50" id="gen-text">Development Programmes</th>
           </tr>
         </thead>
         <tbody>
           <td>
             {%for training in band.trainings%}
             {% if training.type == "Professional Skills" %}
+            <div id="gen-text">
             {{training.name}}<br>
             Description: {{training.description}}<br>
             {% if training.url != null %}
             <a href="{{training.url}}">Find out more</a>
-
+            </div>
             {% endif %}
           </td>
           {%endif%}
           {%endfor%}
           <td>
             {%for training in band.trainings%}
+            <div id="gen-text">
             {% if training.type == "Technical Skills" %}
             {{training.name}}<br>
             Description: {{training.description}}<br>
@@ -57,15 +54,18 @@
             <a href="{{training.url}}">Find out more</a>
             {% endif %}
           </td>
+          </div>
           {%endif%}
           {%endfor%}
           <td>
             {%for training in band.trainings%}
+            <div id="gen-text">
             {% if training.type == "Development Programmes" %}
             {{training.name}}<br>
             Description: {{training.description}}<br>
             {% if training.url != null %}
             <a href="{{training.url}}">Find out more</a>
+            </div>
             {% endif %}
           </td>
           {%endif%}
@@ -76,7 +76,6 @@
 
     {%endfor%}
   </div>
-</div>
 {% else %}
 <h2>Sorry, no training options have been returned from our database. Please try again later!</h2>
 {% endif %}
