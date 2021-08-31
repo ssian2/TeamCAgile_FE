@@ -25,10 +25,17 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th style="min-width:10%; width:30%" class="p-3 text-center" scope="col">{{cap.name}}</a></th>
-          <a href="/capabilities/get/{{cap.name}}"><th style="min-width:10%; width:30%" class="p-3 text-center"scope="col"> View Job Families </th></a>
-          <th style="min-width:10%; width:30%" class="p-3 text-center" scope="col" <a href="/capabilities/matrix/{{cap.name}}"> View Capability Matrix</a></th>
+          <th style="min-width:10%; width:60%" class="p-3 text-center" scope="col">{{cap.name}}</a></th>
+          <th >
+          <div style="float:right;" class="btn-group" role="group" aria-label="Basic example">
+            <button onclick="location.href='/capabilities/get/{{cap.name}}'" type="button" class="btn btn-primary">Job
+              Families</button>
+            <button onclick="location.href='/capabilities/matrix/{{cap.name}}'" type="button"
+              class="btn btn-primary">Capability Matrix</button>
+          </div>
+          </th>
         </tr>
+
       </thead>
       <tbody>
         {% for role in cap.jobRolesInCapability%}
@@ -38,16 +45,16 @@
 
         </tr>
         {% endfor %}
-        
+
       </tbody>
 
     </table>
 
-   {% else %}
+    {% else %}
 
-   <div></div>
-   {% endif %}
-   {% endfor %}
+    <div></div>
+    {% endif %}
+    {% endfor %}
   </div>
 </div>
 {%else%}
