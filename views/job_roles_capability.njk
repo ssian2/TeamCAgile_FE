@@ -2,38 +2,48 @@
 
 {% block content %}
 
-{% if job_roles|length %}
-<div class="container">
-<h1>Job Capabilities</h1>
-<p>Listed below are the capabilities for jobs at Kainos</p>
-<br>
-<div class="table-responsive">
- <table class="table">
-  <thead class="thead-dark">
-    <tr>
-       <th scope="col">Capabilities</th>
-        <th scope="col">Job Role</th>
-         <th scope="col">View Job Families</th>
-         <th scope="col">View Capability Matrix</th>
-    </tr>
-   </thead> 
-  <tbody>
-  {% for role in job_roles | sort(false, true, 'capability') %}
-  <tr>
-   <td>{{role.capability}}</td>
-   <td>{{role.name}}</td>
-   <td><a href="/capabilities/get/{{role.capability}}">View Job Families</a></td>
-   <td><a href="/capabilities/matrix/{{role.capability}}">View Capability Matrix</a><td>
-   </tr>
-  {% endfor %}
-  </tbody>
+  {% if job_roles | length %}
 
-  </table>
-  </div>
-  </div>
-  {%else%}
-<p>Sorry, no capabilities have been returned from our database. Please try again later!</p>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3" id="text">Job Role Capabilities</h1>
+          <p id="text">
+             Listed below are the capabilities for jobs at Kainos
+            </p>
+        </div>
+      </div>
+    </div>
 
-{% endif %}
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Capabilities</th>
+              <th scope="col">Job Role</th>
+              <th scope="col">View Job Families</th>
+              <th scope="col">View Capability Matrix</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for role in job_roles | sort(false, true, 'capability') %}
+              <tr>
+                <td>{{role.capability}}</td>
+                <td>{{role.name}}</td>
+                <td>
+                  <a href="/capabilities/get/{{role.capability}}">View Job Families</a>
+                </td>
+                <td>
+                  <a href="/capabilities/matrix/{{role.capability}}">View Capability Matrix</a>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {%else%}
+        <p>Sorry, no job capabilities have been returned from our database. Please try again later!</p>
 
-{% endblock %} 
+      {% endif %}
+    </div>
+  {% endblock %}

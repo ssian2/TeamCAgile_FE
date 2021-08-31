@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee System</title>
     <script>
-        function validateForm() {
-            let nin = document.forms["myForm"]["nin"].value;
-            if (nin == "") {
-                alert("Name must be filled out");
-                return false;
-            }
+      function validateForm() {
+        let nin = document
+          .forms["myForm"]["nin"]
+          .value;
+        if (nin == "") {
+          alert("Name must be filled out");
+          return false;
         }
+      }
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-</head>
 
-<body>
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/"><img alt="image of kainos log" id="kainos-logo" src="https://www.kainos.com/globalassets/images/5_logos/kainos_logo.png?mode=crop&width=200"></img></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@600&display=swap" rel="stylesheet">
+  </head>
 
-      <div class="collapse navbar-collapse"id="navbarNavDropdown">
-        <ul class="navbar-nav nav-fill w-100">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/job-roles">Roles</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="/capabilities">View Capabilities</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/job-roles/by-band">Band Level</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="username" placeholder="Username" aria-label="Username">
-          <input class="form-control mr-sm-2" type="Password" placeholder="Password" aria-label="Password">
-          <button class="btn btn-outline-primary" type="submit">Login</button>
-        </form>
-      </div>
-    </nav>
+  <body>
+    <div>
+
+      <!-- NAVBAR-->
+      <nav class="navbar navbar-expand-lg py-3 navbar-light bg-light shadow-sm">
+        <div class="container">
+          <a href="/" class="navbar-brand">
+            <!-- Logo Image -->
+            <img src="https://www.kainos.com/globalassets/images/5_logos/kainos_logo.png?mode=crop&width=200" width="100" alt="" class="d-inline-block align-middle mr-2">
+          </a>
+
+          <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+            <span class="navbar-toggler-icon"></span></button>
+
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a href="/" class="nav-link">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a href="/job-roles" class="nav-link">Roles</a>
+              </li>
+              <li class="nav-item">
+                <a href="/capabilities" class="nav-link">Capabilities</a>
+              </li>
+              <li class="nav-item">
+                <a href="/bands-training" class="nav-link">Training</a>
+              </li>
+              <li class="nav-item">
+                <a href="/job-roles/by-band" class="nav-link">Band Level</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
     <div class="body-content" style="padding:5%">
-        {% block content %}
-        {% endblock %}
+      {% block content %}{% endblock %}
     </div>
-    
-</body>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+  </html>

@@ -1,20 +1,26 @@
 {% extends "base.njk" %}
 
 {% block content %}
-<h1>Job Families</h1>
 
-{% if job_families|length %}
+  {% if job_families | length %}
 
-  {% for family in job_families %}
-  <h3>{{family.name}}</h1>
-  <p>Capability: {{family.capability_name}}</p>
-  
-  {% endfor %}
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid" id="job-family">
+        <div class="container">
+          <h1 class="display-3" id="text">Job Families</h1>
+        </div>
+      </div>
+    </div>
 
-{% else %}
-<p>Sorry, no job Families have been returned from our database. Please try again later!</p>
+    {% for family in job_families %}
+      <h3>{{family.name}}</h3>
+      <p>Capability: {{family.capability_name}}</p>
 
-{% endif %}
+    {% endfor %}
 
+  {% else %}
+    <p>Sorry, no job Families have been returned from our database. Please try again later!</p>
 
-{% endblock %} 
+  {% endif %}
+
+{% endblock %}

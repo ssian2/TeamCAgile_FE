@@ -45,7 +45,6 @@ app.use("/job-roles-spec",spec_route);
 const band_routes = require('./routes/band_routes');
 app.use("/bands-training",band_routes)
 
-
 app.get("/", (req, res) => res.render('index'));
 app.get("*", (req, res) => res.render('notfound'));
 
