@@ -1,5 +1,5 @@
 #kainos-logo{
-    width: 70%;
+    width: 80%;
     height: 15%;
     margin-left: 5%;
     
@@ -10,6 +10,37 @@
     background-color: #283588;
     border-color: #283588;
 }
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  a.btn-secondary {
+    margin-top: auto;
+    background-color: #283583;
+  }
+  
+  .jumbotron {
+      background: #283583;
+      width: auto;
+  }
+
+  #text {
+      font-family: 'Karla', sans-serif;
+      color: white;
+  }
+
+  #job-family.jumbotron {
+    background: #283583;
+    width: auto;
+}
+  
+.background {
+    background-color: red;
+}
+  
+
 .job-spec-paragragh{
     margin-bottom: 5%; 
     display: inline; 

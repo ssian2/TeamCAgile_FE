@@ -2,38 +2,43 @@
 
 {% block content %}
 
-{% if job_roles|length %}
-<div class="container">
+  {% if job_roles | length %}
 
-<br>
-<h1>Job Roles with Corresponding Bands</h1>
-<br>
-<br>
-<div class="table-responsive">
- <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Job Role</th>
-      <th scope="col">Band</th>
-    </tr>
-  </thead> 
-  <tbody>
-  
-  {% for role in job_roles|sort(false,true,'band.name') %}
-    <tr>
-      
-      <td>{{role.name}}</td>
-      <td>{{role.band.name}}</td>
-      
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
-</div>
-{% else %}
-  <h2>There are no job roles</h2>
-{% endif %}
+    <div class="container">
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3" id="text">Job Roles with Corresponding Bands</h1>
+          <p id="text">
+             Listed below are the job roles available at Kainos associated with their band levels
+            </p>
+        </div>
+      </div>
+    </div>
 
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Job Role</th>
+              <th scope="col">Band</th>
+            </tr>
+          </thead>
+          <tbody>
 
-{% endblock %} 
+            {% for role in job_roles | sort(false, true, 'band.name') %}
+              <tr>
+
+                <td>{{role.name}}</td>
+                <td>{{role.band.name}}</td>
+
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {% else %}
+    <h2>There are no job roles</h2>
+  {% endif %}
+{% endblock %}
