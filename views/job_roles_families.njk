@@ -1,0 +1,29 @@
+{% extends "base.njk" %}
+
+{% block content %}
+{% for cap in capabilities%}
+
+{% if capabilities|length %}
+<div class="container">
+  <h1 style="margin-bottom: 5%;">Capability Details</h1>
+  <h3>{{ cap.name }}</h3>
+  <hr>
+  <div style="margin-left: 2%">
+    {% if cap.jobFamiliesNames|length %}
+    <div style="margin-top:3%">
+      <h5 id="jobFamiliesNames-title">Job Families:</h5>
+      <ul>
+        {%for family in cap.jobFamiliesNames %}
+        <li>{{family}}</li>
+        {%endfor%}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% else %}
+<p>Sorry, no job specifications have been returned from our database. Please try again later!</p>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

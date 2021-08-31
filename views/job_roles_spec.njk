@@ -1,31 +1,52 @@
 {% extends "base.njk" %}
 
 {% block content %}
+{% for role in job_roles_spec%}
 
 {% if job_roles_spec|length %}
 <div class="container">
-<h1 style="margin-bottom: 5%;">Job Role Details</h1>
-<h3>{{job_roles_spec.name}}</h3>
-<hr>
-<div style="margin-left: 5%;">
-<h5>Specfication:</h5> <p>{{job_roles_spec.specification}}</p>
+  <h1 style="margin-bottom: 5%;">Job Role Details</h1>
+  <h3>{{ role.name }}</h3>
+  <hr>
+  <div style="margin-left: 2%">
+    <div>
+      <h5>Specfication:</h5>
+      <p>{{role.specification}}</p>
+    </div>
+    <div style="margin-bottom: 3%;">
+      <h5 style="display: inline;">Band Level:</h5>
+      <p style="display: inline; font-size: large;">{{role.bandName}}</p>
+    </div>
+    <div>
+      <h5 style="display: inline;">Capability:</h5>
+      <p style="display: inline; font-size: large;">{{role.capability}}</p>
+    </div>
+    <div style="margin-bottom: 3%; margin-left: 2%;">
+      <p style="display: inline;"><strong>Job Family:</strong></p>
+      <p style="display: inline; font-size: large;">{{role.jobFamilyName}}</p>
+    </div>
+    {% if job_roles_spec.url != null %}
+    <h5>URL:</h5> <a href="{{job_roles_spec.url}}">View Spec Doc</a>
+    {% endif %}
 
-<h5>Band Level:</h5> <p>{{job_roles_spec["band"].name}}</p>
-{% if job_roles_spec.url != null %}
-<h5>URL:</h5> <a href="{{job_roles_spec.url}}">View Spec Doc</a>
-{% endif %}
-<br>
-<p><h5 id="responsibility-title">Responsibilities:</h5></p>
-<ul>
-{%for resp in job_roles_spec.responsibilities %}
-   <li>{{resp.name}}</li> 
-{%endfor%}
-</ul>
-</div>
+    {% if role.responsibilitiesList|length %}
+    <div style="margin-top:3%">
+      <h5 id="responsibility-title">Responsibilities:</h5>
+      <ul>
+        {%for resp in role.responsibilitiesList %}
+        <li>{{resp}}</li>
+        {%endfor%}
+      </ul>
+    </div>
+    {% endif %}
+
+
+  </div>
 </div>
 {% else %}
-  <p>Sorry, no job specifications have been returned from our database. Please try again later!</p>
+<p>Sorry, no job specifications have been returned from our database. Please try again later!</p>
 {% endif %}
+{% endfor %}
 
-
-{% endblock %} 
+</div>
+{% endblock %}
