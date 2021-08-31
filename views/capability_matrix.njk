@@ -1,9 +1,12 @@
+{% set title = data.family[0].name %}
 {% extends "base.njk" %}
 
 {% block content %}
 {% if data|length %}
 
-<table class="table table-bordered">
+<h1 id="job-role-heading">Job Roles By Band and Job Family</h1>
+
+<table class="table table-bordered" id="matrix-tables">
   <thead class="thead-dark">
     <tr>
       <th scope="col" style="text-align:center;" colspan="{{ data.family[0].jobFamiliesNames|length + 1 }}">{{data.family[0].name}}</th>

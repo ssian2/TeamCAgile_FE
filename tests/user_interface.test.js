@@ -22,15 +22,6 @@ const getElementId = async (driver, id, timeout = 3000) => {
 };
 
 
-describe('testing the job role path', () => {
-    it('should get 200 status code', async () => {
-        const res = await request(app)
-            .get('/job-roles/by-band')
-        expect(res.statusCode).toEqual(200)
-    })
-});
-
-
 
 describe('executing test scenario on the website', () => {
 

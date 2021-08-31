@@ -5,13 +5,13 @@ var router = express.Router();
 
 router.get("/", async (req, res) => {
     try {
-        const url = 'http://localhost:8080/api/job-role/jobRolesWithBandAndFamily';
+        const url = 'http://localhost:8080/api/capability/withRoles';
         await fetch(url)
             .then(data => { return data.json() })
-            .then(job_capabilities_data => { res.render('job_roles_capability', { job_roles: job_capabilities_data }) });
+            .then(job_capabilities_data => { res.render('job_roles_capability', { capability: job_capabilities_data }) });
     }
     catch (err) {
-        res.render('job_roles_capability', { job_roles: "" });
+        res.render('job_roles_capability', { capability: "" });
     }
 });
 
@@ -33,7 +33,7 @@ router.get("/matrix/:name", async (req, res) => {
     try {
         const role_data = 'http://localhost:8080/api/job-role/byCapability/' + req.params.name;
         const family = 'http://localhost:8080/api/capability/getCapability/' + req.params.name;
-        const band_orders = 'http://localhost:8080/api/band/order';
+        const band_orders = 'http://localhost:8080/api/bands/order';
 
         //Fetch all 3 Urls and map the reponses to the reponse variable. 
         Promise.all([fetch(role_data), fetch(family), fetch(band_orders)])

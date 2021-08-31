@@ -1,10 +1,10 @@
+{% set title = "Job Roles By Capability" %}
 {% extends "base.njk" %}
 
 {% block content %}
 
-  {% if job_roles | length %}
-
-    <div class="container">
+{% if capability|length %}
+  <div class="container">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-3" id="text">Job Role Capabilities</h1>
@@ -15,34 +15,44 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Capabilities</th>
-              <th scope="col">Job Role</th>
-              <th scope="col">View Job Families</th>
-              <th scope="col">View Capability Matrix</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for role in job_roles | sort(false, true, 'capability') %}
-              <tr>
-                <td>{{role.capability}}</td>
-                <td>{{role.name}}</td>
-                <td>
-                  <a href="/capabilities/get/{{role.capability}}">View Job Families</a>
-                </td>
-                <td>
-                  <a href="/capabilities/matrix/{{role.capability}}">View Capability Matrix</a>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        {%else%}
-        <p>Sorry, no job capabilities have been returned from our database. Please try again later!</p>
+<div class="container">
+  <h1>Job Capabilities</h1>
+  <p>Listed below are the capabilities for jobs at Kainos</p>
+  <br>
+  {% for cap in capability | sort(false, true, 'name') %}
+  {% if cap.jobRolesInCapability|length %}
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th style="min-width:10%; width:30%" class="p-3 text-center" scope="col">{{cap.name}}</a></th>
+          <a href="/capabilities/get/{{cap.name}}"><th style="min-width:10%; width:30%" class="p-3 text-center"scope="col"> View Job Families </th></a>
+          <th style="min-width:10%; width:30%" class="p-3 text-center" scope="col" <a href="/capabilities/matrix/{{cap.name}}"> View Capability Matrix</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for role in cap.jobRolesInCapability%}
+        <tr>
+
+          <td colspan="3">{{role}}</td>
+
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+
+    </table>
+
+   {% else %}
+
+   <div></div>
+   {% endif %}
+   {% endfor %}
+  </div>
+</div>
+{%else%}
+<p>Sorry, no capabilities have been returned from our database. Please try again later!</p>
+
 
       {% endif %}
     </div>
