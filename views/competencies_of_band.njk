@@ -6,10 +6,17 @@
 
 {% if bands|length %}
 <div class="container">
-    <h1 class="bg-dark" ><p class="text-light ml-3 mb-2">Bands with corresponding competencies</p></h1>
-<br>
-<br>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">Competencies of bands</h1>
+        <p id="text">
+          Listed below are competencies of each band at Kainos.
+        </p>
+      </div>
+    </div>
+  </div>
 
+<div class="container">
 {%for band in bands%}
 <br>
 <h1>{{band.name}}</h1>
@@ -27,6 +34,7 @@
 {% else %}
   <h2>Sorry, no competency informations  have been returned from our database. Please try again later!</h2>
 {% endif %}
+</div>
 
 
 {% endblock %} 
