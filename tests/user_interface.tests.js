@@ -3,7 +3,7 @@ const app = require('../app')
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
-
+jest.setTimeout(15000)
 
 const getElementXpath = async (driver, xpath, timeout = 3000) => {
     const el = await driver.wait(until.elementLocated(By.xpath(xpath)), timeout);
@@ -76,6 +76,16 @@ describe('executing test scenario on the website', () => {
         await driver.get('http://localhost:7999/job-roles-spec/1')
         const title = await driver.findElement(By.id('responsibility-title')).getText()
         expect(title).toEqual('Responsibilities:')
+    })
+    test('it displays competencies title on competencies page', async () => {
+        await driver.get('http://localhost:7999/bands-training/bands-competencies')
+        const title = await driver.findElement(By.id('text')).getText()
+        expect(title).toEqual('Competencies of bands')
+    })
+    test('it displays training title on training page', async () => {
+        await driver.get('http://localhost:7999/bands-training')
+        const title = await driver.findElement(By.id('text')).getText()
+        expect(title).toEqual('Job Training')
     })
 
 })

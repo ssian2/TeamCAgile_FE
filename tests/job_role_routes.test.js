@@ -1,6 +1,6 @@
 const request = require('supertest')
 const app = require('../app.js')
-jest.setTimeout(10000)
+jest.setTimeout(15000)
 
 
 describe('Testing the job role path', () => {
@@ -33,13 +33,16 @@ describe('Testing the job role path', () => {
   test('should get 200 status code on competencies page', async () => {
     const res = await request(app)
       .get('/bands-training/bands-competencies')
-      console.log(res.statusCode)
     expect(res.statusCode).toEqual(200)
   })
   test('should get 200 status code on competencies page', async () => {
     const res = await request(app)
       .get('/bands-training/bands-competencies')
-      console.log(res.statusCode)
+    expect(res.statusCode).toEqual(200)
+  })
+  test('should get 200 status code on trainings page', async () => {
+    const res = await request(app)
+      .get('/bands-training')
     expect(res.statusCode).toEqual(200)
   })
 });
