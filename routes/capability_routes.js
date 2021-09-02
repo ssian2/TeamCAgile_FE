@@ -51,5 +51,17 @@ router.get("/matrix/:name", async (req, res) => {
 
 });
 
+router.get("/leads", async (req, res) => {
+    try {
+        const url = 'http://localhost:8080/api/capability/leads';
+        await fetch(url)
+            .then(data => { return data.json() })
+            .then(capability_lead_data => { res.render('capability_leads', { capability_leads: capability_lead_data }) });
+    }
+    catch (err) {
+        res.render('capability_leads', { capability_leads: "" });
+    }
+});
+
 
 module.exports = router;

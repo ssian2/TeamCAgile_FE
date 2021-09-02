@@ -1,0 +1,39 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+  {% if capability_leads | length %}
+
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3" id="text">Capability Leads</h1>
+          <p id="text">
+        Listed below are the leads for each capability at Kainos
+      </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row mb-3">
+        {% for lead in capability_leads %}
+          <div class="col-lg-4">
+            <div class="card h-100 bg-light mb-3 jumbotron-fluid" style="width: 100%;">
+              <div class="card-body" style="min-height: 20%;">
+                <h5 class="card-title">{{lead.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{lead.leadName}}</h6>
+                <h6 class="card-subtitle mb-2">{{lead.leadMessage}}</h6>
+                <img class="card-img-bottom" src="{{lead.leadPhoto}}" alt="Lead Photo">
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <p>Sorry, no capability leads have been returned from our database. Please try again later!</p>
+  {% endif %}
+
+{% endblock %}
