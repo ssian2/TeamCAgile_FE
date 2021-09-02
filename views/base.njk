@@ -24,20 +24,20 @@
     <div>
 
       <!-- NAVBAR-->
-      <nav class="navbar navbar-expand-lg py-3 navbar-light bg-light shadow-sm">
+      <nav class="navbar navbar-expand-lg py-3 navbar-light bg-light shadow-sm" role="navigation" aria-label="Main Navigation">
         <div class="container">
           <a href="/" class="navbar-brand">
             <!-- Logo Image -->
-            <img src="https://www.kainos.com/globalassets/images/5_logos/kainos_logo.png?mode=crop&width=200" width="100" alt="" class="d-inline-block align-middle mr-2">
+            <img src="https://www.kainos.com/globalassets/images/5_logos/kainos_logo.png?mode=crop&width=200" width="100" alt="Image of Kainos logo links to home page" class="d-inline-block align-middle mr-2">
           </a>
 
           <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
             <span class="navbar-toggler-icon"></span></button>
 
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
+            <ol class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a href="/" class="nav-link">Home <span class="sr-only">(current)</span></a>
+                <a href="/" class="nav-link">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a href="/job-roles" class="nav-link">Roles</a>
@@ -51,10 +51,9 @@
               <li class="nav-item">
                 <a href="/job-roles/by-band" class="nav-link">Band Level</a>
               </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">Login</a>
-              </li>
-            </ul>
+               <button class="login-btn btn btn-primary" type="submit">Log In</button>
+               <button class="signup-btn btn btn-success" type="submit">Sign Up</button>
+            </ol>
           </div>
         </div>
       </nav>

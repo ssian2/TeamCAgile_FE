@@ -28,9 +28,14 @@
 
   /*for jumbotrons with the blue background and white text*/
   #text {
-      font-family: 'Karla', sans-serif;
-      color: white;
-  }
+    font-family: 'Karla', sans-serif;
+    color: white;
+}
+
+#subtitle-text {
+    font-family: 'Karla', sans-serif;
+    color: white;
+}
 
   /*for title text*/
   #title-text {
@@ -39,13 +44,13 @@
 }
 
 /*for general text*/
-  th#gen-text {
+  th.gen-text {
     font-family: 'Karla', sans-serif;
     color: black;
     font-weight: 100;
 }
 
-div#gentext {
+div.gentext {
     font-family: 'Karla', sans-serif;
     color: black;
     font-weight: 50;
@@ -90,4 +95,14 @@ a.card-link {
 
 #job-role-heading{
     color: #283583;
+}
+
+.login-btn{
+    margin:2%;
+    min-width: 15%;
+}
+
+.signup-btn{
+    margin:2% 2% 2% 0%;
+    min-width: 15%;
 }

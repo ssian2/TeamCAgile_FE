@@ -8,7 +8,7 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-3" id="text">Job Training</h1>
-        <p id="text">
+        <p id="subtitle-text">
           Listed below are the training required for each band level.
         </p>
       </div>
@@ -27,16 +27,16 @@
       <table class="table table-bordered">
         <thead class="thead-light">
           <tr>
-            <th scope="col" width="50" id="gen-text">Professional Skills</th>
-            <th scope="col" width="50" id="gen-text">Technical Skills</th>
-            <th scope="col" width="50" id="gen-text">Development Programmes</th>
+            <th scope="col" width="50" class="gen-text">Professional Skills</th>
+            <th scope="col" width="50" class="gen-text" >Technical Skills</th>
+            <th scope="col" width="50" class="gen-text" >Development Programmes</th>
           </tr>
         </thead>
         <tbody>
           <td>
             {%for training in band.trainings%}
             {% if training.type == "Professional Skills" %}
-            <div id="gen-text">
+            <div class="gen-text" >
             {{training.name}}<br>
             Description: {{training.description}}<br>
             {% if training.url != null %}
@@ -48,7 +48,7 @@
           {%endfor%}
           <td>
             {%for training in band.trainings%}
-            <div id="gen-text">
+            <div class="gen-text" >
             {% if training.type == "Technical Skills" %}
             {{training.name}}<br>
             Description: {{training.description}}<br>
@@ -61,7 +61,7 @@
           {%endfor%}
           <td>
             {%for training in band.trainings%}
-            <div id="gen-text">
+            <div class="gen-text" >
             {% if training.type == "Development Programmes" %}
             {{training.name}}<br>
             Description: {{training.description}}<br>
