@@ -1,104 +1,115 @@
 {% extends "base.njk" %}
 
 {% block pageTitle %}
-  <h1>Job Role Application</h1>
+<h1>Job Role Application</h1>
 {% endblock %}
 
 {% block content %}
 
-  <main role="main">
-    <div class="container">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-3" id="text">What would you like to do?</h1>
-          <p id="text">
-             This application will let you view job roles at Kainos, including the job specification, capability and
-              band level.
-            </p>
+<main role="main">
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">What would you like to do?</h1>
+        <p id="subtitle-text">
+          This application will let you view job roles at Kainos, including the job specification, capability and
+          band level.
+        </p>
+      </div>
+    </div>
+
+    <!-- <div class="container"> -->
+    <!-- 3 items per row -->
+
+    <div class="row mb-3">
+      <div class="col-lg-4">
+        <div class="card-deck">
+          <div class="card h-100 bg-light d-flex align-items-stretch" style="width: 100%;">
+            <div class="card-body h-100" style="min-height: 20%;">
+              <h5 class="card-title">View job roles</h5>
+              <p class="card-text">Find out more about roles available at Kainos.</p>
+              <p>
+                <button onclick="location.href='/job-roles'" class="btn btn-primary" role="button">View details
+                  &raquo;</button>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- <div class="container"> -->
-        <!-- 3 items per row -->
 
-        <div class="row mb-3">
-          <div class="col-lg-4">
-            <div class="card-deck">
-              <div class="card h-100 bg-light mb-3 jumbotron-fluid" style="width: 100%;">
-                <div class="card-body" style="min-height: 20%;">
-                  <h5 class="card-title">View job roles</h5>
-                  <p class="card-text">Find out more about roles available at Kainos.</p>
-                  <p>
-                    <a class="btn btn-secondary" href="/job-roles" role="button">View details &raquo;</a>
-                  </p>
-                </div>
-              </div>
-            </div>
+      <div class="col-lg-4">
+        <div class="card h-100 bg-light d-flex align-items-stretch" style="width: 100%;">
+          <div class="card-body h-100" style="min-height: 20%;">
+            <h5 class="card-title">View all the capabilities</h5>
+            <p class="card-text">Find out more about job capabilities for specific roles at Kainos.</p>
+            <p>
+              <button onclick="location.href='/capabilities'" class="btn btn-primary" role="button">View details
+                &raquo;</button>
+            </p>
           </div>
-
-          <div class="col-lg-4">
-            <div class="card h-100 bg-light mb-3 jumbotron-fluid" style="width: 100%;">
-              <div class="card-body" style="min-height: 20%;">
-                <h5 class="card-title">View all the capabilities</h5>
-                <p class="card-text">Find out more about job capabilities for specific roles at Kainos.</p>
-                <p>
-                  <a class="btn btn-secondary" href="/capabilities" role="button">View details &raquo;</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card h-100 bg-light mb-3 jumbotron-fluid" style="width: 100%;">
-              <div class="card-body" style="min-height: 20%;">
-                <h5 class="card-title">View job roles by band level</h5>
-                <p class="card-text">Find out more about job band levels for specific roles at Kainos.</p>
-                <p>
-                  <a class="btn btn-secondary" id="roles_band_bt" href="/job-roles/by-band" role="button">View details &raquo;</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-        <!-- </div> -->
-
-        <!-- 3 items per row -->
-        <!-- <div class="row mb-3"> -->
-          <div class="col-lg-4">
-            <div class="card h-100 bg-light mb-3" style="width: 100%;">
-              <div class="card-body" style="min-height: 20%;">
-                <h5 class="card-title">View training options for each band</h5>
-                <p class="card-text">Find out more about training opportunities at Kainos.</p>
-                <p>
-                  <a class="btn btn-secondary" href="/bands-training" role="button">View details &raquo;</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card h-100 bg-light mb-3" style="width: 100%;">
-              <div class="card-body" style="min-height: 20%;">
-                <h5 class="card-title">View expected competencies for each band</h5>
-                <p class="card-text">Find out more about competencies at Kainos.</p>
-                <p>
-                  <a class="btn btn-secondary" href="/bands-training/bands-competencies" role="button">View details &raquo;</a>
-                </p>
-              </div>
-            </div>
-            
-          </div>
-        
         </div>
+      </div>
 
-      </div> 
+      <div class="col-lg-4">
+        <div class="card h-100 bg-light d-flex align-items-stretch" style="width: 100%;">
+          <div class="card-body h-100" style="min-height: 20%;">
+            <h5 class="card-title">View job roles by band level</h5>
+            <p class="card-text">Find out more about job band levels for specific roles at Kainos.</p>
+            <p>
+              <button onclick="location.href='/job-roles/by-band'" class="btn btn-primary" id="roles_band_bt"
+                role="button">View details &raquo;</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <hr>
+    <!-- </div> -->
+
+    <!-- 3 items per row -->
+    <!-- <div class="row mb-3"> -->
+    <div class="row mb-3">
+      <div class="col-lg-4">
+        <div class="card h-100 bg-light d-flex align-items-stretch" style="width: 100%;">
+          <div class="card-body h-100" style="min-height: 20%;">
+            <h5 class="card-title">View training options for each band</h5>
+            <p class="card-text">Find out more about training opportunities at Kainos.</p>
+            <p>
+              <button onclick="location.href='/bands-training'" class="btn btn-primary" role="button">View details
+                &raquo;</button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="card h-100 bg-light d-flex align-items-stretch" style="width: 100%;">
+          <div class="card-body" style="min-height: 20%;">
+            <h5 class="card-title">View expected competencies for each band</h5>
+            <p class="card-text">Find out more about competencies at Kainos.</p>
+            <p>
+              <button onclick="location.href='/bands-training/bands-competencies'" class="btn btn-primary"
+                role="button">View details &raquo;</button>
+            </p>
+          </div>
+        </div>
+      </div>
 
     </div>
-    <!-- /container -->
+  </div>
 
-    <footer class="container">
-      <p>&copy; Kainos 2021</p>
-    </footer>
-  </main>
+  </div>
+
+
+  <hr>
+
+  </div>
+  <!-- /container -->
+
+  <footer class="container">
+    <p>&copy; Kainos 2021</p>
+  </footer>
+</main>
 {% endblock %}
