@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% if bands | length %}
+
 
   <div class="container">
     <div class="jumbotron jumbotron-fluid">
@@ -14,6 +14,8 @@
       </div>
     </div>
   </div>
+
+  {% if bands | length %}
 
   <div class="container">
     {%for band in bands|sort(false,true,'trainings.type')%}
@@ -77,7 +79,7 @@
     {%endfor%}
   </div>
 {% else %}
-<h2>Sorry, no training options have been returned from our database. Please try again later!</h2>
+<h4>Sorry, no training options have been returned from our database. Please try again later!</h4>
 {% endif %}
 
 {% endblock %}

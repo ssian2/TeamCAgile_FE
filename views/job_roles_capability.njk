@@ -1,10 +1,10 @@
+{% set title = "Job Roles By Capability" %}
 {% extends "base.njk" %}
 
 {% block content %}
 
-  {% if job_roles | length %}
 
-    <div class="container">
+  <div class="container">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-3" id="text">Job Role Capabilities</h1>
@@ -14,35 +14,52 @@
         </div>
       </div>
     </div>
+    {% if capability|length %}
 
-    <div class="container">
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Capabilities</th>
-              <th scope="col">Job Role</th>
-              <th scope="col">View Job Families</th>
-              <th scope="col">View Capability Matrix</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for role in job_roles | sort(false, true, 'capability') %}
-              <tr>
-                <td>{{role.capability}}</td>
-                <td>{{role.name}}</td>
-                <td>
-                  <a href="/capabilities/get/{{role.capability}}">View Job Families</a>
-                </td>
-                <td>
-                  <a href="/capabilities/matrix/{{role.capability}}">View Capability Matrix</a>
-                {% endfor %}
-              </tbody>
-            </table>
+<div class="container">
+    {%for cap in capability%}
+    <br>
+    <div style="display:flex;flex-direction:row;flex-wrap: wrap;justify-content: space-between;">
+        <h1 id="title-text">{{cap.name}}</h1>
+          <div class="btn-group" role="group" aria-label="Basic example">
+             <button onclick="location.href='/capabilities/get/{{cap.name}}'" type="button" class="btn btn-primary">Job
+              Families</button>
+             <button onclick="location.href='/capabilities/matrix/{{cap.name}}'" type="button"
+               class="btn btn-primary">Capability Matrix</button>
           </div>
-        </div>
-        {%else%}
-        <p>Sorry, no job capabilities have been returned from our database. Please try again later!</p>
+    </div>
+    <br>
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" width="50" id="gen-text">Job Roles</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% if cap.jobRolesInCapability|length %}
+          {% for role in cap.jobRolesInCapability%}
+          <tr>
+          <td>{{role}}</td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+          <td>No Role</td>
+          </tr>
+        {% endif %}
+          <tr>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    {%endfor%}
+  </div>
+{% else %}
+<h4>Sorry, no capabilities have been returned from our database. Please try again later!</h4>
+
 
       {% endif %}
     </div>

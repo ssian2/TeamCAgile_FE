@@ -55,11 +55,7 @@ div#gentext {
     background: #283583;
     width: auto;
 }
-  
-.background {
-    background-color: red;
-}
-  
+
 
 .job-spec-paragragh{
     margin-bottom: 5%; 
@@ -89,5 +85,9 @@ a.card-link {
 
 .table .thead-light th {
     border-color: none;
-    color: #283583;;
+    color: #283583;
+}
+
+#job-role-heading{
+    color: #283583;
 }

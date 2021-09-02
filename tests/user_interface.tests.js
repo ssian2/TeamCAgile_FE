@@ -22,17 +22,8 @@ const getElementId = async (driver, id, timeout = 3000) => {
 };
 
 
-describe('testing the job role path', () => {
-    it('should get 200 status code', async () => {
-        const res = await request(app)
-            .get('/job-roles/by-band')
-        expect(res.statusCode).toEqual(200)
-    })
-});
 
-
-
-describe('executing test scenario on the website', () => {
+describe('Executing test scenario on the website', () => {
 
     let driver;
     // Build the web driver that we will be using in  Test
@@ -69,7 +60,7 @@ describe('executing test scenario on the website', () => {
     test('jobe role by band orded by band', async () => {
         await driver.get('http://localhost:7999/job-roles/by-band')
         const title = await driver.findElements(By.tagName('td'))
-        expect(title[0].getText()).toEqual(title[1].getText())
+            expect(title[0].getText()).toEqual(title[1].getText());
     })
 
     test('it displays responsibility in job spec', async () => {
@@ -88,4 +79,21 @@ describe('executing test scenario on the website', () => {
         expect(title).toEqual('Job Training')
     })
 
+    test('it displays title on matrix page', async () => {
+        await driver.get('http://localhost:7999/capabilities/matrix/Product')
+        const title = await driver.findElement(By.id('job-role-heading')).getText()
+        expect(title).toEqual('Job Roles By Band and Job Family')
+    })
+
+    test('it displays title on capability page', async () => {
+        await driver.get('http://localhost:7999/capabilities')
+        const title = await driver.findElement(By.id('text')).getText()
+        expect(title).toEqual('Job Role Capabilities')
+    })
+
+    test('it displays title on capability page', async () => {
+        await driver.get('http://localhost:7999/capabilities/get/Cyber%20Security')
+        const title = await driver.findElement(By.id('text')).getText()
+        expect(title).toEqual('Capability Details')
+    })
 })

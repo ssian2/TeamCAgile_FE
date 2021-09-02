@@ -1,8 +1,8 @@
+{% set title = "Job Roles" %}
 {% extends "base.njk" %}
 
 {% block content %}
 
-  {% if job_roles | length %}
 
     <div class="container">
       <div class="jumbotron jumbotron-fluid">
@@ -15,6 +15,7 @@
       </div>
     </div>
 
+  {% if job_roles | length %}
     <div class="container">
       <div class="row mb-3">
         {% for role in job_roles %}
@@ -37,7 +38,7 @@
       </div>
     </div>
   {% else %}
-    <p>Sorry, no job roles have been returned from our database. Please try again later!</p>
+    <h4>Sorry, no job roles have been returned from our database. Please try again later!</h4>
   {% endif %}
 
 {% endblock %}

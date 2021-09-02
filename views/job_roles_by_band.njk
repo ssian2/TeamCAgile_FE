@@ -1,3 +1,4 @@
+{% set title = "Job Roles with Band" %}
 {% extends "base.njk" %}
 
 {% block css %}
@@ -5,8 +6,6 @@
 {% endblock %}
 
 {% block content %}
-
-  {% if job_roles | length %}
 
     <div class="container">
       <div class="jumbotron" id="bands">
@@ -19,10 +18,13 @@
       </div>
     </div>
 
+
+  {% if job_roles | length %}
+
     <div class="container">
       <div class="table-responsive">
-        <table class="table">
-          <thead class="thead-dark">
+        <table class="table table-bordered">
+        <thead class="thead-light">
             <tr>
               <th scope="col">Job Role</th>
               <th scope="col">Band</th>
@@ -43,6 +45,6 @@
       </div>
     </div>
   {% else %}
-    <h2>There are no job roles</h2>
+    <h4>There are no job roles</h4>
   {% endif %}
 {% endblock %}

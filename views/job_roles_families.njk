@@ -1,11 +1,22 @@
+{% set title = "List of Job Families" %}
 {% extends "base.njk" %}
 
 {% block content %}
-{% for cap in capabilities%}
+
+  <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3" id="text">Capability Details</h1>
+          <p id="text">
+             Listed below are the capabilities for jobs at Kainos
+            </p>
+        </div>
+      </div>
+    </div>
 
 {% if capabilities|length %}
+{% for cap in capabilities %}
 <div class="container">
-  <h1 style="margin-bottom: 5%;">Capability Details</h1>
   <h3>{{ cap.name }}</h3>
   <hr>
   <div style="margin-left: 2%">
@@ -21,9 +32,9 @@
     {% endif %}
   </div>
 </div>
-{% else %}
-<p>Sorry, no job specifications have been returned from our database. Please try again later!</p>
-{% endif %}
 {% endfor %}
+{% else %}
+<h4>Sorry, no job family details have been returned from our database. Please try again later!</h4>
+{% endif %}
 
 {% endblock %}

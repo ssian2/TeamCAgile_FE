@@ -27,6 +27,11 @@ describe('Testing the job role path', () => {
   })
   test('should get 200 status code', async () => {
     const res = await request(app)
+      .get('/capabilities/matrix/Product')
+    expect(res.statusCode).toEqual(200)
+  })
+  test('should get 200 status code', async () => {
+    const res = await request(app)
       .get('/job-roles-spec/2')
     expect(res.statusCode).toEqual(200)
   })
@@ -45,9 +50,15 @@ describe('Testing the job role path', () => {
       .get('/bands-training')
     expect(res.statusCode).toEqual(200)
   })
+
+  test('should get 200 status code', async () => {
+    const res = await request(app)
+      .get('/job-roles/by-band')
+    expect(res.statusCode).toEqual(200)
+  });
 });
 
-afterAll(async () => { 
-  console.log('closing...'); 
-  await app.close(); 
+afterAll(async () => {
+  console.log('closing...');
+  await app.close();
 });
