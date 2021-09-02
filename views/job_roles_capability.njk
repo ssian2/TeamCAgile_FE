@@ -3,7 +3,7 @@
 
 {% block content %}
 
-{% if capability|length %}
+
   <div class="container">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -14,6 +14,7 @@
         </div>
       </div>
     </div>
+    {% if capability|length %}
 
 <div class="container">
     {%for cap in capability%}
@@ -57,7 +58,7 @@
     {%endfor%}
   </div>
 {% else %}
-<p>Sorry, no capabilities have been returned from our database. Please try again later!</p>
+<h4>Sorry, no capabilities have been returned from our database. Please try again later!</h4>
 
 
       {% endif %}

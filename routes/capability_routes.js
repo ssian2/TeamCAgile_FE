@@ -36,7 +36,7 @@ router.get("/matrix/:name", async (req, res) => {
         const band_orders = 'http://localhost:8080/api/bands/order';
 
         //Fetch all 3 Urls and map the reponses to the reponse variable. 
-        Promise.all([fetch(role_data), fetch(family), fetch(band_orders)])
+       await Promise.all([fetch(role_data), fetch(family), fetch(band_orders)])
             .then(function (responses) {
                 return Promise.all(responses.map(function (response) {
                     return response.json();

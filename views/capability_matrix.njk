@@ -2,10 +2,8 @@
 {% extends "base.njk" %}
 
 {% block content %}
-{% if data|length %}
-
 <h1 id="job-role-heading">Job Roles By Band and Job Family</h1>
-
+{% if data|length %}
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>
@@ -48,7 +46,7 @@
 </table>
 
 {%else%}
-<p>Sorry, no capabilities have been returned from our database. Please try again later!</p>
+<h4>Sorry, no capabilities have been returned from our database. Please try again later!</h4>
 
 {% endif %}
 
