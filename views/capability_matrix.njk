@@ -6,10 +6,11 @@
 
 <h1 id="job-role-heading">Job Roles By Band and Job Family</h1>
 
- <table class="table table-bordered">
-        <thead class="thead-light">
+<table class="table table-bordered">
+  <thead class="thead-light">
     <tr>
-      <th scope="col" style="text-align:center;" colspan="{{ data.family[0].jobFamiliesNames|length + 1 }}">{{data.family[0].name}}</th>
+      <th scope="col" style="text-align:center;" colspan="{{ data.family[0].jobFamiliesNames|length + 1 }}">
+        {{data.family[0].name}}</th>
     </tr>
     <tr>
       <th scope="col">Bands</th>
@@ -22,21 +23,23 @@
 
     {% for band in data.band_level %}
     <tr>
-
       <th scope="row">{{band.name}}</th>
-      {% set count = data.family[0].jobFamiliesNames|length %}
+
+
       {% for family in data.family[0].jobFamiliesNames%}
-        {% for role in data.roles %}
-          {% if role.jobFamilyName == family and role.bandName == band.name %}
-            <td>{{role.name}}</td>
-            {% set count = count - 1 %}
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-       {% for c in range(0,count) %}
-          <td></td>
+      {% set addSqaure = false %}
+         {% for role in data.roles %}
+             {% if role.jobFamilyName == family and role.bandName == band.name %}
+                <td>{{role.name}}</td>
+                   {% set addSqaure = true %}
+             {% endif %}
           {% endfor %}
-     
+          {% if not addSqaure %}
+              <td></td>
+          {% endif %}
+      {% endfor %}
+
+
     </tr>
     {% endfor %}
   </tbody>
