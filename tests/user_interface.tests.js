@@ -96,4 +96,10 @@ describe('Executing test scenario on the website', () => {
         const title = await driver.findElement(By.id('text')).getText()
         expect(title).toEqual('Capability Details')
     })
+
+    test('it displays title on capability lead page', async () => {
+        await driver.get('http://localhost:7999/capabilities/get/capabilities/lead')
+        const title = await driver.findElement(By.id('text')).getText()
+        expect(title).toEqual('Capability Lead Details')
+    })
 })
