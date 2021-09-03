@@ -4,6 +4,20 @@
 {% block content %}
 
   <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" style="background-color: white;">
+        <li class="breadcrumb-item">
+          <a class="breadcrumb-text" href="/">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a class="breadcrumb-text" href="/capabilities">Capabilities</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="/capabilities/get/:name">Family</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container">
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-3" id="text">Capability Details</h1>
@@ -24,24 +38,25 @@
         {% if cap.jobFamiliesNames | length %}
           <div class="table-responsive">
             <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" width="50" class="gen-text">Job Families</th>
-                </tr>
-                <tbody>
-                  <td>
-                    <ul>
-                      {%for family in cap.jobFamiliesNames %}
-                        <li>{{family}}</li>
-                        {%endfor%}
-                      </ul>
-                    </td>
-                  </tbody>
-                {% endif %}
-              </div>
-            {% endfor %}
-          {% else %}
-            <h4>Sorry, no job family details have been returned from our database. Please try again later!</h4>
-          {% endif %}
-
-        {% endblock %}
+              <tr>
+                <th scope="col" width="50" class="gen-text">Job Families</th>
+              </tr>
+              <tbody>
+                <td>
+                  <ul>
+                    {%for family in cap.jobFamiliesNames %}
+                      <li>{{family}}</li>
+                      {%endfor%}
+                    </ul>
+                  </td>
+              
+              {% endif %}
+              </tbody>
+              </table>
+          </div>
+          {% endfor %}
+    </div>
+      {% else %}
+        <h4>Sorry, no job family details have been returned from our database. Please try again later!</h4>
+      {% endif %}
+    {% endblock %}
