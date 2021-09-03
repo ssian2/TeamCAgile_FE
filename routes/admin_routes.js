@@ -78,4 +78,16 @@ router.post("/add-job-role", async(req, res) => {
     }
 });
 
+router.get("/delete-job-roles", async (req, res) => {
+    try {
+        const url='http://localhost:8080/api/job-role/all';
+        await fetch(url)
+        fetch(url)
+        .then(data => { return data.json()})
+        .then(jobrole_data => {res.render('delete-job-roles', {job_roles: jobrole_data})});
+    } catch(err) {
+        res.render('delete-job-roles',{job_roles: ""});
+    }
+});
+
 module.exports = router;
