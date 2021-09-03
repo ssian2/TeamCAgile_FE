@@ -8,7 +8,7 @@
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-3" id="text">Job Roles</h1>
-          <p id="text">
+          <p id="subtitle-text">
         Listed below are the job roles available at Kainos
       </p>
         </div>
@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row mb-3">
         {% for role in job_roles %}
-          {% if loop.index % 5 == 0 %}
+          {% if loop.index0 % 4 == 0 %}
           </div>
           <div class="row mb-3">
           {% endif %}
@@ -27,7 +27,7 @@
             <div class="card h-100 bg-light mb-3 jumbotron-fluid" style="width: 100%;">
               <div class="card-body" style="min-height: 20%;">
                 <h5 class="card-title">{{role.name}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{role.job_family_name}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{role.jobFamilyName}}</h6>
                 <h6 class="card-subtitle mb-2">{{role["band"].name}}</h6>
                 <p class="card-text"></p>
                 <a href="/job-roles-spec/{{role.id}}" class="card-link">View Specification</a>
@@ -35,6 +35,11 @@
             </div>
           </div>
         {% endfor %}
+        {% if job_role|length % 5 != 0%}
+
+        <!-- If job roles is not a multiple of 5 close the row -->
+                </div>
+        {% endif %}
       </div>
     </div>
   {% else %}
