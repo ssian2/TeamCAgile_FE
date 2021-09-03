@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>{{ title }}</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -51,11 +51,11 @@
               <li class="nav-item">
                 <a href="/job-roles/by-band" class="nav-link">Band Level</a>
               </li>
-               <li class="nav-item"> 
-                <button onclick="location.href='#'" class="login-btn btn btn-primary">Log In</button> 
+              <li class="nav-item">
+                <button onclick="location.href='#'" class="login-btn btn btn-primary">Log In</button>
               </li>
-               <li class="nav-item"> 
-                <button onclick="location.href='#'" class="signup-btn btn btn-success">Sign Up</button> 
+              <li class="nav-item">
+                <button onclick="location.href='#'" class="signup-btn btn btn-success">Sign Up</button>
               </li>
             </ol>
           </div>
@@ -65,12 +65,19 @@
     <div class="body-content" style="padding:5%">
       {% block content %}{% endblock %}
     </div>
-<!-- Bootstrap core JavaScript
+
+    <hr class="container">
+    <footer class="container">
+      <p>&copy; Kainos 2021</p>
+    </footer>
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script>
+      window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')
+    </script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
-  </html>
+</html>
