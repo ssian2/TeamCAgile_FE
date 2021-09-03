@@ -2,6 +2,20 @@
 
 {% block content %}
 
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/capabilities">Capabilities</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/capabilities/leads">Capability Leads</li>
+            </ol>
+        </nav>
+    </div>
+
     {% if capability_leads | length %}
 
         <div class="container">
