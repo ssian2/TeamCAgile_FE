@@ -4,37 +4,44 @@
 {% block content %}
 
   <div class="container">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-3" id="text">Capability Details</h1>
-          <p id="subtitle-text">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">Capability Details</h1>
+        <p id="subtitle-text">
              Listed below are the capabilities for jobs at Kainos
             </p>
-        </div>
       </div>
     </div>
-
-{% if capabilities|length %}
-{% for cap in capabilities %}
-<div class="container">
-  <h3>{{ cap.name }}</h3>
-  <hr>
-  <div style="margin-left: 2%">
-    {% if cap.jobFamiliesNames|length %}
-    <div style="margin-top:3%">
-      <h5 id="jobFamiliesNames-title">Job Families:</h5>
-      <ul>
-        {%for family in cap.jobFamiliesNames %}
-        <li>{{family}}</li>
-        {%endfor%}
-      </ul>
-    </div>
-    {% endif %}
   </div>
-</div>
-{% endfor %}
-{% else %}
-<h4>Sorry, no job family details have been returned from our database. Please try again later!</h4>
-{% endif %}
 
-{% endblock %}
+  {% if capabilities | length %}
+    <div class="container">
+      {% for cap in capabilities %}
+
+        <h1 id="title-text">{{ cap.name }}</h1>
+        <br>
+
+        {% if cap.jobFamiliesNames | length %}
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" width="50" class="gen-text">Job Families</th>
+                </tr>
+                <tbody>
+                  <td>
+                    <ul>
+                      {%for family in cap.jobFamiliesNames %}
+                        <li>{{family}}</li>
+                        {%endfor%}
+                      </ul>
+                    </td>
+                  </tbody>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% else %}
+            <h4>Sorry, no job family details have been returned from our database. Please try again later!</h4>
+          {% endif %}
+
+        {% endblock %}
