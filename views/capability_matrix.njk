@@ -2,8 +2,15 @@
 {% extends "base.njk" %}
 
 {% block content %}
-<h1 id="job-role-heading">Job Roles By Band and Job Family</h1>
+ <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">Job Roles By Band and Job Family</h1>
+      </div>
+    </div>
+  </div>
 {% if data|length %}
+  <div class="container">
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>
@@ -44,7 +51,7 @@
 
 
 </table>
-
+</div>
 {%else%}
 <h4>Sorry, no capabilities have been returned from our database. Please try again later!</h4>
 
