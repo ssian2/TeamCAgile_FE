@@ -114,3 +114,16 @@ a.card-link {
 .btn{
     border-radius: 0 !important;
 }
+
+a.breadcrumb-text {
+    font-family: 'Karla', sans-serif;
+    color: #283583;
+}
+
+li.breadcrumb-item.active {
+    font-family: 'Karla', sans-serif;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "·";
+}
