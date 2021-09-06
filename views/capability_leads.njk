@@ -22,7 +22,7 @@
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                     <h1 class="display-3" id="text">Capability Leads</h1>
-                    <p id="text">
+                    <p id="subtitle-text">
         Listed below are the leads for each capability at Kainos
       </p>
                 </div>
@@ -32,13 +32,13 @@
         <div class="container">
             <div class="row mb-3">
                 {% for lead in capability_leads %}
-                    {% if loop.index % 7 == 0 %}
+                    {% if loop.index0 % 3 == 0 %}
                     </div>
                     <div class="row mb-3">
                     {% endif %}
                     <div class="col-lg-4">
-                        <div class="card h-100 bg-light mb-3 jumbotron-fluid" style="width: 100%;">
-                            <img class="card-img-top" src="{{lead.leadPhoto}}" alt="Lead Photo">
+                        <div class="card h-100 bg-light mb-3 jumbotron-fluid" id="capability-lead-card" style="width: 100%;">
+                            <img class="card-img-top" src="{{lead.leadPhoto}}" alt="Lead Photo" >
                             <div class="card-body" style="min-height: 20%;">
                                 <h5 class="card-title" id="title-text">{{lead.name}}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">{{lead.leadName}}</h6>

@@ -72,21 +72,13 @@
 <script>
 
 function rotateIcon(bandName){
-  //Get icons that have already been rotated
-  var rotated = Array.from(document.getElementsByClassName("rotate"));
-  if(rotated){
-    rotated.forEach(element => {
-      //remove rotation as they close
-      element.classList.remove('rotate');
+  //Get all the icon elements
+  var icons = Array.from(document.getElementsByClassName('fa-angle-right'));
+    icons.forEach(element => {
+      console.log(element.id)
+      //if icon is the selected icon then toggle rotation else remove rotation. 
+      element.id == "arrow-icon-"+bandName? element.classList.toggle("rotate"): element.classList.remove('rotate');
     });
-  }
-
-  var icon = document.getElementById("arrow-icon-" + bandName);
-  if(icon){
-    //add rotation to icon just selected
-    icon.classList.toggle("rotate");
-  }
-
 }
 
 </script>
