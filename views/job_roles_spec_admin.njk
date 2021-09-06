@@ -1,0 +1,72 @@
+{% set title =  role.name %}
+{% extends "base.njk" %}
+
+
+
+
+
+{% block content %}
+<script>
+    function makeDELETErequest(id) {
+        $.ajax({
+            url: '/admin/delete/'+ id,
+            type: 'DELETE',
+        }).done(function( data ) {
+        console.log(id);
+    console.log(data);
+  });
+    }
+</script>
+{% for role in job_roles_spec%}
+
+{% if job_roles_spec|length %}
+<div class="container">
+  <h1 style="margin-bottom: 5%;" >Job Role Details</h1>
+  <h3>{{ role.name }}</h3>
+  <hr>
+  <div style="margin-left: 2%">
+    <div>
+      <h5>Specfication:</h5>
+      <p>{{role.specification}}</p>
+    </div>
+    <div style="margin-bottom: 3%;">
+      <h5 style="display: inline;">Band Level:</h5>
+      <p style="display: inline; font-size: large;">{{role.bandName}}</p>
+    </div>
+    <div>
+      <h5 style="display: inline;">Capability:</h5>
+      <p style="display: inline; font-size: large;">{{role.capability}}</p>
+    </div>
+    <div style="margin-bottom: 3%; margin-left: 2%;">
+      <p style="display: inline;"><strong>Job Family:</strong></p>
+      <p style="display: inline; font-size: large;">{{role.jobFamilyName}}</p>
+    </div>
+    {% if job_roles_spec.url != null %}
+    <h5>URL:</h5> <a href="{{job_roles_spec.url}}">View Spec Doc</a>
+    {% endif %}
+
+    {% if role.responsibilitiesList|length %}
+    <div style="margin-top:3%">
+      <h5 id="responsibility-title">Responsibilities:</h5>
+      <ul>
+        {%for resp in role.responsibilitiesList %}
+        <li>{{resp}}</li>
+        {%endfor%}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div style="margin-bottom: 3%; margin-left: 2%;">
+      <a class="btn btn-danger" id="delete_job_role" href="#0" page_id = '{{id_data}}' role="button">Delete Job Role &raquo;</a>
+    </div>
+
+
+  </div>
+</div>
+{% else %}
+<h4>Sorry, no job specifications have been returned from our database. Please try again later!</h4>
+{% endif %}
+{% endfor %}
+
+</div>
+{% endblock %}

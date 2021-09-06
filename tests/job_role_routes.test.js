@@ -1,6 +1,6 @@
 const request = require('supertest')
 const app = require('../app.js')
-jest.setTimeout(15000)
+jest.setTimeout(30000)
 
 
 describe('Testing the job role path', () => {
