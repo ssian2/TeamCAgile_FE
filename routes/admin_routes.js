@@ -15,7 +15,7 @@ function validate_connection(req, res) {
 // repeat code in get & post requests
 async function render_add_job_role(req, res) {
     try {
-        const band_url = 'http://localhost:8080/api/band';
+        const band_url = 'http://localhost:8080/api/bands/all';
         const families_url = "http://localhost:8080/api/job-family/all";
 
         // Use Promise.all to await multiple promised in parallel
