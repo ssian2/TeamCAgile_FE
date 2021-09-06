@@ -127,3 +127,32 @@ li.breadcrumb-item.active {
 .breadcrumb-item + .breadcrumb-item::before {
     content: "·";
 }
+
+/*for accordion menu*/
+.accordion-bar{
+    border-radius: 4px !important;
+    margin-bottom: -3%;
+    color: rgb(40 53 131);
+    background-color: #e9ecef;
+}
+
+
+.accordian-heading{
+    font-family: 'Karla', sans-serif;
+    font-weight: 150;
+    font-size: large;
+    color: #283583;
+}
+
+#rotate-icon {
+    transition: all .5s ease-in-out;;
+  }
+  
+.rotate {
+    transform: rotate(90deg);
+}
+
+.accordion .card-body{
+    margin-top: 5%;
+    margin-left: 2%;
+}
