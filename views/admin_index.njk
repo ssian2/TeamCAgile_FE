@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block pageTitle %}
+	<h1>Job Role Application - Admin FE</h1>
+{% endblock %}
+
+{% block content %}
+	<div>
+		<div>
+			<div class="jumbotron">
+				<div class="container">
+					<h1 class="display-3 text-white">Welcome to the admin frontend</h1>
+					<p class="text-white">What would you like to do?</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Add new role</h2>
+					<p>Add a new job role</p>
+					<p>
+						<a class="btn btn-danger" href="/admin/add-job-role" role="button">Go &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Delete roles</h2>
+					<p>Show job roles that can be deleted</p>
+					<p>
+						<a class="btn btn-danger" id="admin-dashboard-delete-button" href="/admin/delete-job-roles" role="button">Go &raquo;</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Dummy</h2>
+					<p>Dummy item</p>
+					<p>
+						<a class="btn btn-danger" href="/job-roles/by-band" role="button">Go &raquo;</a>
+					</p>
+				</div>
+			</div>
+			<hr>
+		</div>
+		<!-- /container -->
+	</div>
+	<footer class="container">
+		<p>&copy; Kainos 2021</p>
+	</footer>
+{% endblock %}
