@@ -63,7 +63,7 @@ describe('Executing test scenario on the website', () => {
     test('it displays responsibility in job spec', async () => {
         await driver.get('http://localhost:7999/job-roles-spec/2')
         const title = await driver.findElement(By.id('responsibility-title')).getText()
-        expect(title).toEqual('Responsibilities:')
+        expect(title).toEqual('Responsibilities')
     })
     test('it displays competencies title on competencies page', async () => {
         await driver.get('http://localhost:7999/bands-training/bands-competencies')
@@ -78,7 +78,7 @@ describe('Executing test scenario on the website', () => {
 
     test('it displays title on matrix page', async () => {
         await driver.get('http://localhost:7999/capabilities/matrix/Product')
-        const title = await driver.findElement(By.id('job-role-heading')).getText()
+        const title = await driver.findElement(By.id('text')).getText()
         expect(title).toEqual('Job Roles By Band and Job Family')
     })
 
