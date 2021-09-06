@@ -44,8 +44,6 @@
     {% for band in data.band_level %}
     <tr>
       <th scope="row">{{band.name}}</th>
-
-
       {% for family in data.family[0].jobFamiliesNames%}
       {% set addSqaure = false %}
          {% for role in data.roles %}
