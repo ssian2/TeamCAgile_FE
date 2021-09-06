@@ -92,6 +92,10 @@ a.card-link {
     border-color: none;
     color: #283583;
 }
+.table th {
+    border-color: none;
+    color: #283583;
+}
 
 #job-role-heading{
     color: #283583;
@@ -105,4 +109,21 @@ a.card-link {
 .signup-btn{
     margin:2% 2% 2% 0%;
     min-width: 15%;
+}
+
+.btn{
+    border-radius: 0 !important;
+}
+
+a.breadcrumb-text {
+    font-family: 'Karla', sans-serif;
+    color: #283583;
+}
+
+li.breadcrumb-item.active {
+    font-family: 'Karla', sans-serif;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "·";
 }

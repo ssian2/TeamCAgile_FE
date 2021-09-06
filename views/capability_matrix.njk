@@ -2,8 +2,30 @@
 {% extends "base.njk" %}
 
 {% block content %}
-<h1 id="job-role-heading">Job Roles By Band and Job Family</h1>
+
+ <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/capabilities">Capabilities</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/capabilities/get/:name">Band and Family</li>
+            </ol>
+        </nav>
+    </div>
+
+ <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">Job Roles By Band and Job Family</h1>
+      </div>
+    </div>
+  </div>
 {% if data|length %}
+  <div class="container">
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>
@@ -44,7 +66,7 @@
 
 
 </table>
-
+</div>
 {%else%}
 <h4>Sorry, no capabilities have been returned from our database. Please try again later!</h4>
 

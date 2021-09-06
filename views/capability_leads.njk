@@ -2,6 +2,20 @@
 
 {% block content %}
 
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/capabilities">Capabilities</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/capabilities/leads">Capability Leads</li>
+            </ol>
+        </nav>
+    </div>
+
     {% if capability_leads | length %}
 
         <div class="container">
@@ -26,7 +40,7 @@
                         <div class="card h-100 bg-light mb-3 jumbotron-fluid" style="width: 100%;">
                             <img class="card-img-top" src="{{lead.leadPhoto}}" alt="Lead Photo">
                             <div class="card-body" style="min-height: 20%;">
-                                <h5 class="card-title">{{lead.name}}</h5>
+                                <h5 class="card-title" id="title-text">{{lead.name}}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">{{lead.leadName}}</h6>
                                 <h6 class="card-subtitle mb-2">{{lead.leadMessage}}</h6>
                             </div>

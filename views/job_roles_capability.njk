@@ -3,6 +3,16 @@
 
 {% block content %}
 
+ <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/capabilities">Capabilities</li>
+            </ol>
+        </nav>
+    </div>
 
   <div class="container">
       <div class="jumbotron jumbotron-fluid">
@@ -11,7 +21,9 @@
           <p id="subtitle-text">
              Listed below are the capabilities for jobs at Kainos
             </p>
-            <a style="color:white; text-decoration:underline;" href="/capabilities/leads">View Capability Leads</a>
+           <!-- <a style="color:white; text-decoration:underline;" href="/capabilities/leads">View Capability Leads</a> -->
+           <button onclick="location.href='/capabilities/leads'" class="btn btn-success" role="button">View Capability Leads
+                &raquo;</button>
         </div>
       </div>
     </div>

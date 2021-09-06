@@ -7,11 +7,22 @@
 
 {% block content %}
 
+ <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/job-roles/by-band">Band Level</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="container">
-      <div class="jumbotron" id="bands">
+      <div class="jumbotron jumbotron-fluid" id="bands">
         <div class="container">
           <h1 class="display-3" id="text">Job Roles with Corresponding Bands</h1>
-          <p id="subtitle-textt">
+          <p id="subtitle-text">
         Listed below are the job roles available at Kainos associated with their band levels
       </p>
         </div>

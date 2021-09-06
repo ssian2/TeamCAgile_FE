@@ -1,59 +1,77 @@
-{% set title =  role.name %}
+{% set title = role.name %}
 {% extends "base.njk" %}
 
 {% block content %}
-{% for role in job_roles_spec%}
+  {% for role in job_roles_spec%}
 
-{% if job_roles_spec|length %}
-<div class="container">
-  <h1 style="margin-bottom: 5%;" >Job Role Details</h1>
-  <h3>{{ role.name }}</h3>
-  <hr>
-  <div style="margin-left: 2%">
-    <div>
-      <h5>Specfication:</h5>
-      <p>{{role.specification}}</p>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3" id="text">Job Role Details</h1>
+          <p id="subtitle-text">
+          Listed below is the details for this job role
+        </p>
+        </div>
+      </div>
     </div>
-    <div style="margin-bottom: 3%;">
-      <h5 style="display: inline;">Band Level:</h5>
-      <p style="display: inline; font-size: large;">{{role.bandName}}</p>
-    </div>
-    <div>
-      <h5 style="display: inline;">Capability:</h5>
-      <p style="display: inline; font-size: large;">{{role.capability}}</p>
-    </div>
-    <div style="margin-bottom: 3%; margin-left: 2%;">
-      <p style="display: inline;"><strong>Job Family:</strong></p>
-      <p style="display: inline; font-size: large;">{{role.jobFamilyName}}</p>
-    </div>
-    {% if job_roles_spec.url != null %}
-    <h5>URL:</h5> <a href="{{job_roles_spec.url}}">View Spec Doc</a>
-    {% endif %}
 
-    {% if role.responsibilitiesList|length %}
-    <div style="margin-top:3%">
-      <h5 id="responsibility-title">Responsibilities:</h5>
-      <ul>
-        {%for resp in role.responsibilitiesList %}
-        <li>{{resp}}</li>
-        {%endfor%}
-      </ul>
-    </div>
-    {% endif %}
 
-     {% if admin  %}
+    {% if job_roles_spec | length %}
+
+
+      <div class="container">
+        <h1 id="title-text">{{ role.name }}</h1>
+        <br>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <tbody>
+            <tr>
+            <th scope="row" width="50" class="gen-text">Specfication</th>
+              <td>
+                {{role.specification}}
+              </td>
+              </tr>
+              <tr>
+               <th scope="row" width="50" class="gen-text" >Band Level</th>
+              <td>
+                {{role.bandName}}
+              </td>
+              </tr>
+              <tr>
+              <th scope="row" width="50" class="gen-text" >Capability</th>
+              <td>
+                {{role.capability}}
+              </td>
+              </tr>
+              <tr>
+              <th scope="row" width="50" class="gen-text" >Job Family</th>
+              <td>
+                {{role.jobFamilyName}}
+              </td>
+              </tr>
+              <tr>
+              <th scope="row" width="50" class="gen-text" >Responsibilities</th>
+              <td>
+                <ul>
+                  {%for resp in role.responsibilitiesList %}
+                    <li>{{resp}}</li>
+                    {%endfor%}
+                  </ul>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+            
+            {% if admin  %}
     <div style="margin-bottom: 3%; margin-left: 2%;">
       <a class="btn btn-danger" id="delete_job_role"  page_id = '{{id_data}}' role="button">Delete Job Role &raquo;</a>
     </div>
     {% endif %}
+          </div>
+        {% else %}
+          <h4>Sorry, no job specifications have been returned from our database. Please try again later!</h4>
+        {% endif %}
+      {% endfor %}
 
-
-  </div>
-</div>
-{% else %}
-<h4>Sorry, no job specifications have been returned from our database. Please try again later!</h4>
-{% endif %}
-{% endfor %}
-
-</div>
-{% endblock %}
+    </div>
+  {% endblock %}
