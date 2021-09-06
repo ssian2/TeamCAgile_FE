@@ -84,9 +84,9 @@ router.get("/delete-job-roles", async (req, res) => {
         await fetch(url)
         fetch(url)
         .then(data => { return data.json()})
-        .then(jobrole_data => {res.render('delete-job-roles', {job_roles: jobrole_data})});
+        .then(jobrole_data => {res.render('job_roles', {job_roles: jobrole_data})});
     } catch(err) {
-        res.render('delete-job-roles',{job_roles: ""});
+        res.render('job_roles',{job_roles: ""});
     }
 });
 
@@ -96,25 +96,28 @@ router.get("/job-roles-spec/:specid", async (req, res) => {
         const url = 'http://localhost:8080/api/job-role/view-job-spec/' + req.params.specid;
         await fetch(url)
             .then(data => { return data.json() })
-            .then(jobspec_data => { res.render('job_roles_spec_admin', { job_roles_spec: jobspec_data ,id_data: req.params.specid}) });
+            .then(jobspec_data => { res.render('job_roles_spec', { job_roles_spec: jobspec_data ,id_data: req.params.specid, admin: true}) });
     }
     catch (err) {
-        res.render('job_roles_spec_admin', { job_roles_spec: "" });
+        res.render('job_roles_spec', { job_roles_spec: "" });
     }
 });
 
-router.delete("/delete/:specid",async (req,res)=>{
+router.get("/delete/:specid",async (req,res)=>{
     try{
         
         const url = 'http://localhost:8080/api/job-role/delete/' + req.params.specid;
-        fetch(url, {
+         await fetch(url, {
                 method: 'DELETE',
                 })
-                .then(res => res.text()) // or res.json()
-                .then(res => console.log(res))
-                .then(returned_data => {res.render('correctly_deleted',{what: "job role",what_id:req.params.specid})});
-                
-                
+                .then(text => { return text.text()}) 
+                .then(variable => {if(variable=="Deleted")
+                {
+                    res.render('correctly_deleted',{what: "job role",what_id:req.params.specid});
+                }
+            else{
+                    res.render('error.njk');
+            } });
     }
     catch (err) {
         res.render('error.njk');

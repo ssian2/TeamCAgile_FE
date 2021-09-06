@@ -10,34 +10,25 @@ describe('Testing the job role path', () => {
     expect(res.statusCode).toEqual(200)
     console.log(res.statusCode);
   })
-  test('should get 200 status code', async () => {
-    const res = await request(app)
-      .get('/capabilities/job-family')
-    expect(res.statusCode).toEqual(200)
-  })
-  test('should get 200 status code', async () => {
+  
+  test('should get 200 status code on capabilities page', async () => {
     const res = await request(app)
       .get('/capabilities/')
     expect(res.statusCode).toEqual(200)
   })
-  test('should get 200 status code', async () => {
+  test('should get 200 status code on a signle capability page', async () => {
     const res = await request(app)
       .get('/capabilities/get/Cyber%20Security')
     expect(res.statusCode).toEqual(200)
   })
-  test('should get 200 status code', async () => {
+  test('should get 200 status code on matrix', async () => {
     const res = await request(app)
       .get('/capabilities/matrix/Product')
     expect(res.statusCode).toEqual(200)
   })
-  test('should get 200 status code', async () => {
+  test('should get 200 status code on job roles spec page', async () => {
     const res = await request(app)
       .get('/job-roles-spec/2')
-    expect(res.statusCode).toEqual(200)
-  })
-  test('should get 200 status code on competencies page', async () => {
-    const res = await request(app)
-      .get('/bands-training/bands-competencies')
     expect(res.statusCode).toEqual(200)
   })
   test('should get 200 status code on competencies page', async () => {
@@ -50,15 +41,29 @@ describe('Testing the job role path', () => {
       .get('/bands-training')
     expect(res.statusCode).toEqual(200)
   })
-
-  test('should get 200 status code', async () => {
+  test('should get 200 status code on job roles by band page', async () => {
     const res = await request(app)
       .get('/job-roles/by-band')
     expect(res.statusCode).toEqual(200)
   });
   test('should get 200 status code on capability leads page', async () => {
     const res = await request(app)
-      .get('/capabilities/lead')
+      .get('/capabilities/leads')
+    expect(res.statusCode).toEqual(200)
+  });
+  test('should get 200 status code on admin home page', async () => {
+    const res = await request(app)
+      .get('/admin')
+    expect(res.statusCode).toEqual(200)
+  });
+  test('should get 200 status code on delete jobrole page', async () => {
+    const res = await request(app)
+      .get('/admin/delete-job-roles')
+    expect(res.statusCode).toEqual(200)
+  });
+  test('should get 200 status code on admin jobrole spec page', async () => {
+    const res = await request(app)
+      .get('/admin/job-roles-spec/2')
     expect(res.statusCode).toEqual(200)
   });
 });

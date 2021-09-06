@@ -48,11 +48,8 @@ describe('Executing test scenario on the website', () => {
         expect(title).toContain('What would you like to do?')
     })
 
-    test('it performs a validation of the button to roles by band', async () => {
-
-        await until.elementLocated(By.id('roles_band_bt'))
-        const value = await driver.findElement(By.id('roles_band_bt')).getAttribute('href')
-        await driver.get(value)
+    test('it performs a validation of order by band page', async () => {
+        await driver.get("http://localhost:7999/job-roles/by-band")
         const title = await driver.findElement(By.tagName('h1')).getText()
         expect(title).toContain("Job Roles with Corresponding Bands")
     })
@@ -64,7 +61,7 @@ describe('Executing test scenario on the website', () => {
     })
 
     test('it displays responsibility in job spec', async () => {
-        await driver.get('http://localhost:7999/job-roles-spec/1')
+        await driver.get('http://localhost:7999/job-roles-spec/2')
         const title = await driver.findElement(By.id('responsibility-title')).getText()
         expect(title).toEqual('Responsibilities:')
     })
@@ -98,8 +95,23 @@ describe('Executing test scenario on the website', () => {
     })
 
     test('it displays title on capability lead page', async () => {
-        await driver.get('http://localhost:7999/capabilities/get/capabilities/lead')
+        await driver.get('http://localhost:7999/capabilities/leads')
         const title = await driver.findElement(By.id('text')).getText()
-        expect(title).toEqual('Capability Lead Details')
+        expect(title).toEqual('Capability Leads')
+    })
+
+    test('it displays admin tile on home page', async () => {
+        await driver.get('http://localhost:7999')
+        const title = await driver.findElement(By.id('admin-homepage-tile')).getText()
+        expect(title).toEqual('Open admin dashboard')
+    })
+
+    test('it performs validation on Delete Roles button on admin dashboard', async () => {
+        await driver.get('http://localhost:7999/admin')
+        const title = await driver.findElement(By.id('admin-dashboard-delete-button')).getAttribute('href')
+        expect(title).toEqual('http://localhost:7999/admin/delete-job-roles')
+        await driver.get(title)
+        const newtitle = await driver.findElement(By.id('text')).getText()
+        expect(newtitle).toEqual('Job Roles')
     })
 })
