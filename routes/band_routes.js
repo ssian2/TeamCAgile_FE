@@ -18,7 +18,7 @@ catch(err){
 
 router.get("/bands-competencies", async (req, res) => {
     try {
-    const url='http://localhost:8080/api/band-competency/bands-with-competencies';
+    const url='http://localhost:8080/api/bands/withCompetency';
     await fetch(url)
     fetch(url)
     .then(data => { return data.json()})
