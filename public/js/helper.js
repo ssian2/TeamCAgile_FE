@@ -9,4 +9,11 @@ $(document).ready(function(){
             console.log("Action Aborted");
           }
     });
+
+    $("input").on("keyup",function() {
+      var maxLength = $(this).attr("maxlength");
+      if(maxLength == $(this).val().length) {
+        alert("You can't write more than " + maxLength +" chacters")
+      }
+    })
 });

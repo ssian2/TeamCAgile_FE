@@ -124,5 +124,36 @@ router.get("/delete/:specid",async (req,res)=>{
     }
 });
 
+router.get("/add/capability", async (req, res) => {
+        res.render('add_cap', { body: req.body, sources: req.sources}) ;
+    });
+    
+
+
+router.post("/add/capability", async(req, res) => {
+    if (validate_connection(req)) {
+        const url = 'http://localhost:8080/api/capability/add';
+        let json = await fetch(url, {
+            method: 'post',
+            body: JSON.stringify(req.body),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(response => response.json())
+            .catch(console.log);
+
+        if (json.okay) {
+            // Code 200, everything's fine
+        } else {
+            // Code 400 or 500, not okay
+            if (req.sources) {
+                delete req[sources];
+            }
+            req.sources = json.sources;
+        }
+
+        res.render('add_cap', { body: req.body, sources: req.sources}) ;
+    }
+});
+
 
 module.exports = router;
