@@ -66,6 +66,11 @@ describe('Testing the job role path', () => {
       .get('/admin/job-roles-spec/2')
     expect(res.statusCode).toEqual(200)
   });
+  test('should get 200 status code on admin add  jobrole page', async () => {
+    const res = await request(app)
+      .get('/admin/add-job-role')
+    expect(res.statusCode).toEqual(200)
+  });
 });
 
 afterAll(async () => {
