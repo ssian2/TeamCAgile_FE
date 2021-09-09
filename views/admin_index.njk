@@ -6,44 +6,72 @@
 
 {% block content %}
 	<div>
-		<div>
-			<div class="jumbotron">
-				<div class="container">
-					<h1 class="display-3">Welcome to the admin frontend</h1>
-					<p>What would you like to do?</p>
+		<div class="container">
+			<div>
+				<div class="jumbotron jumbotron-fluid">
+					<div class="container">
+						<h1 class="display-3" id="text">Welcome to the admin frontend</h1>
+						<p id="subtitle-text">What would you like to do?</p>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<!-- Example row of columns -->
-			<div class="row">
-				<div class="col-md-4">
-					<h2>Add new role</h2>
-					<p>Add a new job role</p>
-					<p>
-						<a class="btn btn-danger" href="/admin/add-job-role" role="button">Go &raquo;</a>
-					</p>
+			<!-- <div class="row"> -->
+			<div class="row mb-3">
+				<div class="col-lg-4">
+					<div class="card-deck">
+						<div class="card h-100 bg-light d-flex align-items-stretch jumbotron-fluid" style="width: 100%;">
+							<div class="card-body h-100" style="min-height: 20%;">
+								<h5 class="card-title">Add new role</h5>
+								<p class="card-text">Add a new job role</p>
+								<p>
+									<a class="btn btn-danger" href="/admin/add-job-role" role="button">Go &raquo;</a>
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-4">
-					<h2>Delete roles</h2>
-					<p>Show job roles that can be deleted</p>
-					<p>
-						<a class="btn btn-danger" href="/admin/delete-job-roles" role="button">Go &raquo;</a>
-					</p>
+				<div class="col-lg-4">
+					<div class="card-deck">
+						<div class="card h-100 bg-light d-flex align-items-stretch jumbotron-fluid" style="width: 100%;">
+							<div class="card-body h-100" style="min-height: 20%;">
+								<h5 class="card-title">Delete roles</h5>
+								<p class="card-text">Show job roles that can be deleted</p>
+								<p>
+									<a class="btn btn-danger" href="/admin/delete-job-roles" role="button">Go &raquo;</a>
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-4">
-					<h2>Dummy</h2>
-					<p>Dummy item</p>
-					<p>
-						<a class="btn btn-danger" href="/job-roles/by-band" role="button">Go &raquo;</a>
-					</p>
+				<div class="col-lg-4">
+					<div class="card-deck">
+						<div class="card h-100 bg-light d-flex align-items-stretch jumbotron-fluid" style="width: 100%;">
+							<div class="card-body h-100" style="min-height: 20%;">
+								<h5 class="card-title">Edit job roles</h5>
+								<p class="card-text">Edit an existing job role</p>
+								<p>
+									<a class="btn btn-danger" href="/admin/edit-roles" role="button">Go &raquo;</a>
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
+				<!--
+					<div class="col-md-4">
+						<h2>Edit job roles</h2>
+						<p>Edit an existing job role</p>
+						<p>
+							<a class="btn btn-danger" href="/admin/edit-roles" role="button">Go &raquo;</a>
+						</p>
+					</div>
+					-->
 			</div>
-			<hr>
+
 		</div>
 		<!-- /container -->
+
 	</div>
-	<footer class="container">
-		<p>&copy; Kainos 2021</p>
-	</footer>
 {% endblock %}
