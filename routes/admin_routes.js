@@ -143,15 +143,18 @@ router.post("/add/capability", async(req, res) => {
 
         if (json.okay) {
             // Code 200, everything's fine
+            res.render('succes_add_cap')
+
         } else {
             // Code 400 or 500, not okay
             if (req.sources) {
                 delete req[sources];
             }
             req.sources = json.sources;
+            res.render('add_cap', { body: req.body, sources: req.sources}) ;
         }
 
-        res.render('add_cap', { body: req.body, sources: req.sources}) ;
+        
     }
 });
 

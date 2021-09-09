@@ -3,6 +3,7 @@ const app = require('../app')
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
+    
 jest.setTimeout(40000);
 
 const getElementXpath = async (driver, xpath, timeout = 3000) => {
@@ -29,7 +30,7 @@ describe('Executing test scenario on the website', () => {
     // Build the web driver that we will be using in  Test
     beforeAll(async () => {
         driver = new webdriver.Builder()
-            .forBrowser('safari')
+            .forBrowser('chrome')
             .build();
         await driver.get(
             `http://localhost:7999/`,
@@ -173,3 +174,6 @@ describe('Executing UI tests on adding a new jobrole', () => {
     })
     
 });
+
+
+
