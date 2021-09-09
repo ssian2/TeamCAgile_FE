@@ -40,12 +40,18 @@ const capability_routes = require('./routes/capability_routes');
 app.use("/capabilities",capability_routes);
 
 const spec_route = require('./routes/job_spec_routes');
-
 app.use("/job-roles-spec",spec_route);
 
+const band_routes = require('./routes/band_routes');
+app.use("/bands-training",band_routes)
+const admin_route = require('./routes/admin_routes');
+app.use("/admin", admin_route);
 
 app.get("/", (req, res) => res.render('index'));
-app.get("*", (req, res) => res.render('notfound'));
+app.get("*", (req, res) => {
+    res.render('error', {error: {code: 404, message: "Page not found."}});
+    res.statusCode = 404;
+});
 
 /* Port configuration */
 let server = app.listen(process.env.PORT || 7999, function () {

@@ -1,0 +1,62 @@
+{% extends "base.njk" %}
+
+{% block content %}
+	<div class="container">
+		<h1>Add Job Role</h1>
+		<form method="post">
+			<div class="form-group">
+				<label for="band">Band:</label>
+				{% if sources.band %}
+					<div class="alert alert-danger alert-dismissible fade show">
+						<strong>Error!</strong> {{ sources.band }}
+					</div>
+				{% endif %}
+				<select name="band" id="band" class="form-control" required>
+					{% for band in bands %}
+						{% if band.id == body.band %}
+							<option value="{{band.id}}" selected>{{band.name}}</option>
+						{% else %}
+							<option value="{{band.id}}">{{band.name}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="job_family">Job Family:</label>
+				{% if sources.job_family %}
+					<div class="alert alert-danger alert-dismissible fade show">
+						<strong>Error!</strong> {{ sources.job_family }}
+					</div>
+				{% endif %}
+				<select name="job_family" id="job_family" class="form-control" required>
+					{% for job_family in job_families %}
+						{% if job_family.id == body.job_family %}
+							<option value="{{job_family.id}}" selected>{{job_family.name}}</option>
+						{% else %}
+							<option value="{{job_family.id}}">{{job_family.name}}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="name">Name:</label>
+				{% if sources.name %}
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<strong>Error!</strong> {{ sources.name }}
+					</div>
+				{% endif %}
+				<input type="text" name="name" id="name" class="form-control" value="{{body.name}}" required>
+			</div>
+			<div class="form-group">
+				<label for="summary">Summary:</label>
+				{% if sources.summary %}
+					<div class="alert alert-danger alert-dismissible fade show">
+						<strong>Error!</strong> {{ sources.summary }}
+					</div>
+				{% endif %}
+				<textarea name="summary" id="summary" class="form-control" rows="4" cols="50" required>{{body.summary}}</textarea>
+			</div>
+			<button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+ <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/bands-training">Training</li>
+            </ol>
+        </nav>
+    </div>
+
+
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">Job Training</h1>
+        <p id="subtitle-text">
+          Listed below are the training required for each band level
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {% if bands | length %}
+
+  <div class="container">
+    {%for band in bands|sort(false,true,'trainings.type')%}
+    <br>
+    <h1 id="title-text">{{band.name}}</h1>
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" width="50" class="gen-text">Professional Skills</th>
+            <th scope="col" width="50" class="gen-text" >Technical Skills</th>
+            <th scope="col" width="50" class="gen-text" >Development Programmes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td>
+            {%for training in band.trainings%}
+            {% if training.type == "Professional Skills" %}
+            <div class="gen-text" >
+            {{training.name}}<br>
+            Description: {{training.description}}<br>
+            {% if training.url != null %}
+            <a href="{{training.url}}">Find out more</a>
+            </div>
+            {% endif %}
+          </td>
+          {%endif%}
+          {%endfor%}
+          <td>
+            {%for training in band.trainings%}
+            <div class="gen-text" >
+            {% if training.type == "Technical Skills" %}
+            {{training.name}}<br>
+            Description: {{training.description}}<br>
+            {% if training.url != null %}
+            <a href="{{training.url}}">Find out more</a>
+            {% endif %}
+          </td>
+          </div>
+          {%endif%}
+          {%endfor%}
+          <td>
+            {%for training in band.trainings%}
+            <div class="gen-text" >
+            {% if training.type == "Development Programmes" %}
+            {{training.name}}<br>
+            Description: {{training.description}}<br>
+            {% if training.url != null %}
+            <a href="{{training.url}}">Find out more</a>
+            </div>
+            {% endif %}
+          </td>
+          {%endif%}
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+
+    {%endfor%}
+  </div>
+{% else %}
+<h4>Sorry, no training options have been returned from our database. Please try again later!</h4>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% set title = "List of Job Families" %}
+{% extends "base.njk" %}
+
+{% block content %}
+
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" style="background-color: white;">
+        <li class="breadcrumb-item">
+          <a class="breadcrumb-text" href="/">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a class="breadcrumb-text" href="/capabilities">Capabilities</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="/capabilities/get/:name">Family</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">Job Families</h1>
+        <p id="subtitle-text">
+             Listed below are the job families for this capability at Kainos
+            </p>
+      </div>
+    </div>
+  </div>
+
+  {% if capabilities | length %}
+    <div class="container">
+      {% for cap in capabilities %}
+
+        <h1 id="title-text">{{ cap.name }}</h1>
+        <br>
+
+        {% if cap.jobFamiliesNames | length %}
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tr>
+                <th scope="col" width="50" class="gen-text">Job Families</th>
+              </tr>
+              <tbody>
+                <td>
+                  <ul>
+                    {%for family in cap.jobFamiliesNames %}
+                      <li>{{family}}</li>
+                      {%endfor%}
+                    </ul>
+                  </td>
+              
+              {% endif %}
+              </tbody>
+              </table>
+          </div>
+          {% endfor %}
+    </div>
+      {% else %}
+        <h4>Sorry, no job family details have been returned from our database. Please try again later!</h4>
+      {% endif %}
+    {% endblock %}

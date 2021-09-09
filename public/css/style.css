@@ -1,12 +1,151 @@
-#kainos-logo{
-    width: 70%;
+#kainos-logo {
+    width: 80%;
     height: 15%;
     margin-left: 5%;
-    
 }
 
 .btn-primary {
     color: #fff;
     background-color: #283588;
     border-color: #283588;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+a.btn-secondary {
+    margin-top: auto;
+    background-color: #283583;
+}
+
+.jumbotron {
+    background: #283583;
+    width: auto;
+}
+
+
+/*for jumbotrons with the blue background and white text*/
+
+#text {
+    font-family: 'Karla', sans-serif;
+    color: white;
+}
+
+#subtitle-text {
+    font-family: 'Karla', sans-serif;
+    color: white;
+}
+
+
+/*for title text*/
+
+#title-text {
+    font-family: 'Karla', sans-serif;
+    color: #283583;
+}
+
+
+/*for general text*/
+
+th.gen-text {
+    font-family: 'Karla', sans-serif;
+    color: black;
+    font-weight: 100;
+}
+
+div.gentext {
+    font-family: 'Karla', sans-serif;
+    color: black;
+    font-weight: 50;
+}
+
+#bands.jumbotron {
+    background: #283583;
+    width: auto;
+}
+
+.job-spec-paragragh {
+    margin-bottom: 5%;
+    display: inline;
+    font-size: large;
+    color: aqua;
+}
+
+#bandLevelElement {
+    margin-bottom: 5%;
+    display: inline;
+    font-size: large;
+}
+
+.jumbotron.jumbotron-fluid {
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+a.card-link {
+    color: #283583;
+}
+
+.card {
+    border: none;
+}
+
+.table .thead-light th {
+    border-color: none;
+    color: #283583;
+}
+.table th {
+    border-color: none;
+    color: #283583;
+}
+
+.table th {
+    border-color: none;
+    color: #283583;
+}
+
+#job-role-heading {
+    color: #283583;
+}
+
+.login-btn {
+    margin: 2%;
+    min-width: 15%;
+}
+
+.signup-btn {
+    margin: 2% 2% 2% 0%;
+    min-width: 15%;
+}
+
+.btn {
+    border-radius: 0 !important;
+}
+
+a.breadcrumb-text {
+    font-family: 'Karla', sans-serif;
+    color: #283583;
+}
+
+li.breadcrumb-item.active {
+    font-family: 'Karla', sans-serif;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: "·";
+}
+
+.card-img-top {
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+}
+
+#capability-lead-card {
+    border-style: solid;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    padding-bottom: 10%;
 }

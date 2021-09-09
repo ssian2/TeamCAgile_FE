@@ -1,0 +1,75 @@
+{% set title = data.family[0].name %}
+{% extends "base.njk" %}
+
+{% block content %}
+
+ <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/capabilities">Capabilities</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/capabilities/get/:name">Band and Family</li>
+            </ol>
+        </nav>
+    </div>
+
+ <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="text">Job Roles By Band and Job Family</h1>
+      </div>
+    </div>
+  </div>
+{% if data|length %}
+  <div class="container">
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" style="text-align:center;" colspan="{{ data.family[0].jobFamiliesNames|length + 1 }}">
+        {{data.family[0].name}}</th>
+    </tr>
+    <tr>
+      <th scope="col">Bands</th>
+      {% for family in data.family[0].jobFamiliesNames %}
+      <th scope="col">{{family}}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for band in data.band_level %}
+    <tr>
+      <th scope="row">{{band.name}}</th>
+
+
+      {% for family in data.family[0].jobFamiliesNames%}
+      {% set addSqaure = false %}
+         {% for role in data.roles %}
+             {% if role.jobFamilyName == family and role.bandName == band.name %}
+                <td>{{role.name}}</td>
+                   {% set addSqaure = true %}
+             {% endif %}
+          {% endfor %}
+          {% if not addSqaure %}
+              <td></td>
+          {% endif %}
+      {% endfor %}
+
+
+    </tr>
+    {% endfor %}
+  </tbody>
+
+
+</table>
+</div>
+{%else%}
+<h4>Sorry, no capabilities have been returned from our database. Please try again later!</h4>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/capabilities">Capabilities</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/capabilities/leads">Capability Leads</li>
+            </ol>
+        </nav>
+    </div>
+
+    {% if capability_leads | length %}
+
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-3" id="text">Capability Leads</h1>
+                    <p id="text">
+        Listed below are the leads for each capability at Kainos
+      </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row mb-3">
+                {% for lead in capability_leads %}
+                    {% if loop.index0 % 3 == 0 %}
+                    </div>
+                    <div class="row mb-3">
+                    {% endif %}
+                    <div class="col-lg-4">
+                        <div class="card h-100 bg-light mb-3 jumbotron-fluid" id="capability-lead-card" style="width: 100%;">
+                            <img class="card-img-top" src="{{lead.leadPhoto}}" alt="Lead Photo">
+                            <div class="card-body" style="min-height: 20%;">
+                                <h5 class="card-title" id="title-text">{{lead.name}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{lead.leadName}}</h6>
+                                <h6 class="card-subtitle mb-2">{{lead.leadMessage}}</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p>Sorry, no capability leads have been returned from our database. Please try again later!</p>
+    {% endif %}
+
+{% endblock %}
