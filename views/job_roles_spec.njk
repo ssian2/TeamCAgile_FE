@@ -15,9 +15,7 @@
       </div>
     </div>
 
-
     {% if job_roles_spec | length %}
-
 
       <div class="container">
         <h1 id="title-text">{{ role.name }}</h1>
@@ -50,7 +48,7 @@
               </td>
               </tr>
               <tr>
-              <th scope="row" width="50" class="gen-text" id="responsibility-title" >Responsibilities</th>
+              <th scope="row" width="50" class="gen-text" >Responsibilities</th>
               <td>
                 <ul>
                   {%for resp in role.responsibilitiesList %}
@@ -61,12 +59,6 @@
                 </tr>
               </tbody>
             </table>
-            
-            {% if admin  %}
-    <div style="margin-bottom: 3%; margin-left: 2%;">
-      <a class="btn btn-danger" id="delete_job_role"  page_id = '{{id_data}}' role="button">Delete Job Role &raquo;</a>
-    </div>
-    {% endif %}
           </div>
         {% else %}
           <h4>Sorry, no job specifications have been returned from our database. Please try again later!</h4>

@@ -82,7 +82,6 @@ router.get("/delete-job-roles", async (req, res) => {
     try {
         const url='http://localhost:8080/api/job-role/all';
         await fetch(url)
-        fetch(url)
         .then(data => { return data.json()})
         .then(jobrole_data => {res.render('job_roles', {job_roles: jobrole_data})});
     } catch(err) {
@@ -90,6 +89,67 @@ router.get("/delete-job-roles", async (req, res) => {
     }
 });
 
+/* route for page with all roles available to edit */
+router.get("/edit-roles", async (req, res) => {
+    try {
+        const url='http://localhost:8080/api/job-role/all';
+        await fetch(url)
+        .then(data => { return data.json()})
+        .then(jobrole_data => {res.render('all_roles_to_edit', {job_roles: jobrole_data})});
+    } catch(err) {
+        res.render('all_roles_to_edit',{job_roles: ""});
+    }
+});
+
+/* route for page to edit a specific role */
+router.get("/edit-roles/:id", async (req, res) => {
+    try {
+        const roles_url='http://localhost:8080/api/job-role/all';
+        const bands_url='http://localhost:8080/api/bands/all';
+        const capability_url='http://localhost:8080/api/capability/';
+        let [jobrole_data, bands_data, capability_data] = await Promise.all([
+            fetch(roles_url)
+            .then(data => { return data.json()}),
+            fetch(bands_url)
+            .then(data => { return data.json()}),
+            fetch(capability_url)
+            .then(data => { return data.json()})
+          ])
+
+          res.render('edit_job_role', {
+            job_roles: jobrole_data,
+            bands: bands_data,
+            capabilities: capability_data,
+            body: req.params.id
+        });
+
+    } catch(err) {
+        res.render('edit_job_role',{job_roles: ""});
+    }
+});
+
+router.post("/edit-roles/:id", async(req, res) => {
+    if (validate_connection(req)) {
+        const url = 'http://localhost:8080/api/job-role/edit/' + req.params.id;
+        let json = await fetch(url, {
+            method: 'post',
+            body: JSON.stringify(req.body),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(response => response.json())
+            .catch(console.log);
+
+        if (json.okay) {
+            // Code 200, everything's fine
+        } else {
+            // Code 400 or 500, not okay
+            if (req.sources) {
+                delete req[sources];
+            }
+            req.sources = json.sources;
+        }
+    }
+});
 
 router.get("/job-roles-spec/:specid", async (req, res) => {
     try {
@@ -122,6 +182,7 @@ router.get("/delete/:specid",async (req,res)=>{
     catch (err) {
         res.render('error.njk');
     }
+    /* use router.get for editing the role! */
 });
 
 

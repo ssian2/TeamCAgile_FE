@@ -1,0 +1,64 @@
+{% set title = "Job Roles" %}
+{% extends "base.njk" %}
+
+{% block content %}
+
+ <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="breadcrumb-text" href="/admin">Admin</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="/job-roles">Edit Job Roles</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3" id="text">Job Roles</h1>
+          <p id="subtitle-text">
+        Listed below are the job roles available at Kainos
+      </p>
+        </div>
+      </div>
+    </div>
+
+  {% if job_roles | length %}
+    
+<div class="container">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+              <th scope="col">Job Role</th>
+              <th scope="col">Job Family</th>
+              <th scope="col">Band Level</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for role in job_roles | sort(false, true, 'band.name') %}
+              <tr>
+
+                <td>{{role.name}}</td>
+                <td>{{role.jobFamilyName}}</td>
+                <td>{{role["band"].name}}</td>
+                <td><a class="btn btn-danger" href="/admin/edit-roles/{{role.id}}" role="button">Edit &raquo;</a>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  {% else %}
+    <h4>Sorry, no job roles have been returned from our database. Please try again later!</h4>
+  {% endif %}
+
+{% endblock %}
