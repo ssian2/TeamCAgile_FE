@@ -1,0 +1,78 @@
+{% extends "base.njk" %}
+
+{% block content %}
+	<div class="container">
+		<h1>Add Job Role to New Band</h1>
+		{% if body.success %}
+			<div class="alert alert-success" role="alert">
+				Job Role and Band added successfully!
+			</div>
+		{% endif %}
+		<form method="post">
+
+            <!-- Define band level and name -->
+            <div class="form-row">
+                <div class="form-group col-md-10">
+                    <label for="band_name" required>Band Name:</label>
+                    {% if sources.band_name %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Error!</strong> {{ sources.band_name }}
+                        </div>
+                    {% endif %}
+                    <input type="text" name="band_name" id="band_name" class="form-control" value="{{body.band_name}}" required>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="level" required>Band Level:</label>
+                    {% if sources.band_level %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Error!</strong> {{ sources.band_level }}
+                        </div>
+                    {% endif %}
+                    <input type="number" name="band_level" id="band_level" class="form-control" value="{{body.band_level}}" required>
+                </div>
+            </div>
+            
+            <!-- Select from existing Training -->
+            <div class="form-group">
+                <label for="training_checkbox">Available Training:</label>
+                <br>
+                <select multiple class="form-control multi_checkbox" id="training_checkbox">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <!-- Select competency type and write description -->
+            <div class="form-group">
+                <label for="job_family_checkbox">Job Family:</label>
+                <br>
+                <select class="form-control multi_checkbox" id="job_family_checkbox">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <!-- Job Role name & Summary -->
+            <!-- Select from job family -->
+            <!-- Select Responsibilities for job role -->
+            <div class="form-group col">
+                <label for="competencies_checkbox">Job Competencies:</label>
+                <br>
+                <select multiple class="form-control multi_checkbox" id="competencies_checkbox">
+                    <option>111</option>
+                    <option>222</option>
+                    <option>333</option>
+                    <option>444</option>
+                    <option>555</option>
+                </select>
+            </div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+{% endblock %}
